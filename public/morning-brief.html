@@ -528,56 +528,41 @@ async function fetchBskyPosts(handle){
   }catch(e){ console.warn('[Bsky] exception for',handle,e.message); return []; }
 }
 
-// RSS FETCH
+// RSS FETCH — uses our own Netlify function to avoid CORS/proxy issues
 async function fetchRssFeed(source,hoursBack){
   var items=null;
-  // Method 1: rss2json
+
+  // Method 1: our own Netlify function (works when deployed)
   try{
-    var res=await fetch('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(source.url)+'&count=25',{signal:AbortSignal.timeout(8000)});
+    var res=await fetch('/.netlify/functions/rss?url='+encodeURIComponent(source.url),{signal:AbortSignal.timeout(10000)});
     if(res.ok){
-      var data=await res.json();
-      if(data.status==='ok'&&data.items&&data.items.length){
-        items=data.items.map(function(item){return {source:source.name,headline:(item.title||'Untitled').trim(),excerpt:stripHtml(item.description||item.content||'').substring(0,220),url:item.link||'#',time:item.pubDate?new Date(item.pubDate):new Date(0)};});
+      var text=await res.text();
+      var doc=new DOMParser().parseFromString(text,'text/xml');
+      var entries=Array.from(doc.querySelectorAll('item, entry'));
+      if(entries.length){
+        items=entries.slice(0,25).map(function(el){
+          var get=function(tag){var n=el.querySelector(tag);return n?n.textContent.trim():'';};
+          var ga=function(tag,attr){var n=el.querySelector(tag);return n?(n.getAttribute(attr)||''):'';};
+          var pub=get('pubDate')||get('published')||get('updated')||'';
+          return {source:source.name,headline:get('title')||'Untitled',excerpt:stripHtml(get('description')||get('summary')||get('content')||'').substring(0,220),url:get('link')||ga('link','href')||'#',time:pub?new Date(pub):new Date(0)};
+        });
       }
     }
-  }catch(e){}
-  // Method 2: corsproxy
+  }catch(e){ console.warn('Netlify function failed for',source.name,e.message); }
+
+  // Method 2: rss2json fallback
   if(!items){
     try{
-      var res=await fetch('https://corsproxy.io/?url='+encodeURIComponent(source.url),{signal:AbortSignal.timeout(10000)});
+      var res=await fetch('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(source.url)+'&count=25',{signal:AbortSignal.timeout(8000)});
       if(res.ok){
-        var doc=new DOMParser().parseFromString(await res.text(),'text/xml');
-        var entries=Array.from(doc.querySelectorAll('item, entry'));
-        if(entries.length){
-          items=entries.slice(0,25).map(function(el){
-            var get=function(tag){var n=el.querySelector(tag);return n?n.textContent.trim():'';};
-            var ga=function(tag,attr){var n=el.querySelector(tag);return n?(n.getAttribute(attr)||''):'';};
-            var pub=get('pubDate')||get('published')||get('updated')||'';
-            return {source:source.name,headline:get('title')||'Untitled',excerpt:stripHtml(get('description')||get('summary')||get('content')||'').substring(0,220),url:get('link')||ga('link','href')||'#',time:pub?new Date(pub):new Date(0)};
-          });
+        var data=await res.json();
+        if(data.status==='ok'&&data.items&&data.items.length){
+          items=data.items.map(function(item){return {source:source.name,headline:(item.title||'Untitled').trim(),excerpt:stripHtml(item.description||item.content||'').substring(0,220),url:item.link||'#',time:item.pubDate?new Date(item.pubDate):new Date(0)};});
         }
       }
     }catch(e){}
   }
-  // Method 3: allorigins
-  if(!items){
-    try{
-      var res=await fetch('https://api.allorigins.win/get?url='+encodeURIComponent(source.url),{signal:AbortSignal.timeout(10000)});
-      if(res.ok){
-        var wrapper=await res.json();
-        var doc=new DOMParser().parseFromString(wrapper.contents||'','text/xml');
-        var entries=Array.from(doc.querySelectorAll('item, entry'));
-        if(entries.length){
-          items=entries.slice(0,25).map(function(el){
-            var get=function(tag){var n=el.querySelector(tag);return n?n.textContent.trim():'';};
-            var ga=function(tag,attr){var n=el.querySelector(tag);return n?(n.getAttribute(attr)||''):'';};
-            var pub=get('pubDate')||get('published')||get('updated')||'';
-            return {source:source.name,headline:get('title')||'Untitled',excerpt:stripHtml(get('description')||get('summary')||get('content')||'').substring(0,220),url:get('link')||ga('link','href')||'#',time:pub?new Date(pub):new Date(0)};
-          });
-        }
-      }
-    }catch(e){}
-  }
+
   if(!items||!items.length) return [];
   var cutoff=new Date(Date.now()-hoursBack*3600000);
   var inWindow=items.filter(function(i){return i.time>cutoff||i.time.getTime()===0;});
