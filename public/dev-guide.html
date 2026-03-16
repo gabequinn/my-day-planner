@@ -10,103 +10,119 @@
 :root{
   --sora:'Sora',sans-serif;
   --mono:'JetBrains Mono',monospace;
-  --c1:#1a1a2e;--c2:#16213e;--c3:#0f3460;
+  --c1:#1a1a2e;--c2:#16213e;
   --accent:#e94560;--accent2:#f5a623;--accent3:#4ecdc4;
   --text:#f0f0f0;--muted:#a0a8b8;--border:#2a3550;
-  --card:#1e2a40;--card2:#243045;
+  --card:#1e2a40;
 }
 html,body{height:100%;font-family:var(--sora);background:var(--c1);color:var(--text)}
 .app{display:flex;height:100vh;overflow:hidden}
-.sidebar{width:240px;min-width:240px;background:var(--c2);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow-y:auto}
-.sidebar-header{padding:24px 20px 16px;border-bottom:1px solid var(--border)}
-.sidebar-title{font-size:13px;font-weight:600;color:var(--accent);letter-spacing:2px;text-transform:uppercase}
-.sidebar-sub{font-size:11px;color:var(--muted);margin-top:4px}
-.nav-section{padding:12px 0}
-.nav-label{font-size:10px;font-weight:600;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:4px 20px 8px}
-.nav-item{display:flex;align-items:center;gap:10px;padding:9px 20px;cursor:pointer;font-size:13px;color:var(--muted);transition:all 0.15s;border-left:3px solid transparent}
+.sidebar{width:260px;min-width:260px;background:var(--c2);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow-y:auto}
+.sidebar-header{padding:20px 18px 14px;border-bottom:1px solid var(--border)}
+.sidebar-title{font-size:12px;font-weight:600;color:var(--accent);letter-spacing:2px;text-transform:uppercase}
+.sidebar-sub{font-size:11px;color:var(--muted);margin-top:3px}
+.nav-section{padding:10px 0}
+.nav-label{font-size:10px;font-weight:600;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:4px 18px 6px}
+.nav-item{display:flex;align-items:center;gap:9px;padding:8px 18px;cursor:pointer;font-size:12px;color:var(--muted);transition:all 0.15s;border-left:3px solid transparent}
 .nav-item:hover{color:var(--text);background:rgba(255,255,255,0.04)}
 .nav-item.active{color:var(--text);background:rgba(233,69,96,0.12);border-left-color:var(--accent)}
-.nav-dot{width:6px;height:6px;border-radius:50%;background:var(--border);flex-shrink:0;transition:background 0.15s}
+.nav-dot{width:5px;height:5px;border-radius:50%;background:var(--border);flex-shrink:0;transition:background 0.15s}
 .nav-item.active .nav-dot{background:var(--accent)}
-.content{flex:1;overflow-y:auto;padding:40px 48px;max-width:860px}
+.content{flex:1;overflow-y:auto;padding:36px 44px;max-width:900px}
 .page{display:none}
 .page.active{display:block}
-.chapter-badge{display:inline-block;font-size:11px;font-weight:600;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
-h1{font-size:28px;font-weight:600;line-height:1.3;margin-bottom:8px}
-.subtitle{font-size:16px;color:var(--muted);line-height:1.6;margin-bottom:32px}
-h2{font-size:18px;font-weight:600;margin:32px 0 12px;color:var(--text)}
-h3{font-size:15px;font-weight:600;margin:24px 0 8px;color:var(--accent3)}
-p{font-size:14px;line-height:1.8;color:#c8d0e0;margin-bottom:14px}
-.callout{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--accent3);border-radius:8px;padding:16px 20px;margin:20px 0}
+.chapter-badge{display:inline-block;font-size:11px;font-weight:600;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+h1{font-size:26px;font-weight:600;line-height:1.3;margin-bottom:8px}
+.subtitle{font-size:15px;color:var(--muted);line-height:1.6;margin-bottom:28px}
+h2{font-size:17px;font-weight:600;margin:30px 0 10px;color:var(--text)}
+h3{font-size:14px;font-weight:600;margin:22px 0 8px;color:var(--accent3)}
+p{font-size:13px;line-height:1.85;color:#c8d0e0;margin-bottom:12px}
+.callout{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--accent3);border-radius:8px;padding:14px 18px;margin:18px 0}
 .callout.warn{border-left-color:var(--accent2)}
 .callout.tip{border-left-color:var(--accent)}
-.callout-label{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent3);margin-bottom:6px}
+.callout.info{border-left-color:#6baaff}
+.callout-label{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent3);margin-bottom:5px}
 .callout.warn .callout-label{color:var(--accent2)}
 .callout.tip .callout-label{color:var(--accent)}
+.callout.info .callout-label{color:#6baaff}
 .callout p{margin:0;font-size:13px}
-.code-block{background:#0d1626;border:1px solid var(--border);border-radius:8px;padding:16px 20px;margin:16px 0;overflow-x:auto}
-.code-block code{font-family:var(--mono);font-size:12px;color:#a8d8b8;line-height:1.8;white-space:pre}
-.code-comment{color:#586e75}
-.code-keyword{color:#859900}
-.code-string{color:#2aa198}
-.code-cmd{color:#f5a623}
-.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:20px 0}
-.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px}
-.card-icon{font-size:20px;margin-bottom:10px}
-.card-title{font-size:13px;font-weight:600;margin-bottom:6px}
+.callout p+p{margin-top:8px}
+.code-block{background:#0d1626;border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin:14px 0;overflow-x:auto}
+.code-block code{font-family:var(--mono);font-size:12px;color:#a8d8b8;line-height:1.9;white-space:pre}
+.cc{color:#586e75}
+.ck{color:#859900}
+.cs{color:#2aa198}
+.cmd{color:#f5a623}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:18px 0}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px}
+.card-icon{font-size:18px;margin-bottom:8px}
+.card-title{font-size:13px;font-weight:600;margin-bottom:5px}
 .card-desc{font-size:12px;color:var(--muted);line-height:1.6}
-.flow-steps{margin:20px 0}
-.flow-step{display:flex;gap:16px;margin-bottom:24px;align-items:flex-start}
-.step-num{width:32px;height:32px;border-radius:50%;background:var(--accent);color:white;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.step-body{flex:1;padding-top:4px}
-.step-title{font-size:14px;font-weight:600;margin-bottom:4px}
-.step-desc{font-size:13px;color:var(--muted);line-height:1.6}
-.step-connector{width:1px;height:16px;background:var(--border);margin-left:15px}
-.pipeline-stage{display:flex;align-items:stretch;gap:0;margin:20px 0;overflow-x:auto}
-.p-stage{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px 18px;min-width:110px;position:relative;flex:1}
+.flow-steps{margin:18px 0}
+.flow-step{display:flex;gap:14px;margin-bottom:20px;align-items:flex-start}
+.step-num{width:30px;height:30px;border-radius:50%;background:var(--accent);color:white;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.step-body{flex:1}
+.step-title{font-size:13px;font-weight:600;margin-bottom:4px}
+.step-desc{font-size:12px;color:var(--muted);line-height:1.7}
+.step-connector{width:1px;height:14px;background:var(--border);margin-left:14px}
+.pipeline-stage{display:flex;align-items:stretch;gap:0;margin:18px 0;overflow-x:auto;padding-bottom:4px}
+.p-stage{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px 14px;min-width:100px;position:relative;flex:1}
 .p-stage+.p-stage{margin-left:8px}
-.p-stage::after{content:'→';position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:16px;z-index:1}
+.p-stage::after{content:'→';position:absolute;right:-13px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:14px;z-index:1}
 .p-stage:last-child::after{display:none}
-.p-stage-label{font-size:10px;font-weight:600;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
-.p-stage-name{font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px}
+.p-stage-label{font-size:9px;font-weight:600;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:5px}
+.p-stage-name{font-size:12px;font-weight:600;color:var(--text);margin-bottom:3px}
 .p-stage-tool{font-size:11px;color:var(--accent3)}
-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px}
-th{text-align:left;padding:10px 14px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border)}
-td{padding:10px 14px;border-bottom:1px solid rgba(42,53,80,0.5);color:#c8d0e0;vertical-align:top}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:12px}
+th{text-align:left;padding:9px 12px;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border)}
+td{padding:9px 12px;border-bottom:1px solid rgba(42,53,80,0.5);color:#c8d0e0;vertical-align:top;line-height:1.6}
 tr:hover td{background:rgba(255,255,255,0.02)}
-.pill{display:inline-block;font-size:11px;padding:2px 10px;border-radius:20px;font-weight:600}
+.pill{display:inline-block;font-size:11px;padding:2px 9px;border-radius:20px;font-weight:600}
 .pill-green{background:rgba(78,205,196,0.15);color:#4ecdc4}
 .pill-amber{background:rgba(245,166,35,0.15);color:#f5a623}
 .pill-red{background:rgba(233,69,96,0.15);color:#e94560}
 .pill-blue{background:rgba(56,132,255,0.15);color:#6baaff}
-.analogy-box{background:linear-gradient(135deg,rgba(78,205,196,0.08),rgba(78,205,196,0.02));border:1px solid rgba(78,205,196,0.2);border-radius:10px;padding:20px;margin:20px 0}
-.analogy-label{font-size:11px;font-weight:600;color:var(--accent3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
-.inline-code{font-family:var(--mono);font-size:12px;background:#0d1626;padding:2px 6px;border-radius:4px;color:#f5a623}
-.highlight{color:var(--accent3);font-weight:600}
-.nav-footer{margin-top:auto;padding:16px 20px;border-top:1px solid var(--border)}
-.progress-label{font-size:11px;color:var(--muted);margin-bottom:8px}
-.prog-bar-wrap{height:4px;background:var(--border);border-radius:2px}
-.prog-bar-fill{height:4px;background:var(--accent);border-radius:2px;transition:width 0.3s}
-.chapter-nav{display:flex;justify-content:space-between;margin-top:40px;padding-top:20px;border-top:1px solid var(--border)}
-.nav-btn{padding:10px 20px;border-radius:6px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-family:var(--sora);font-size:13px;cursor:pointer;transition:all 0.15s}
+.pill-purple{background:rgba(160,100,240,0.15);color:#c084fc}
+.analogy-box{background:rgba(78,205,196,0.06);border:1px solid rgba(78,205,196,0.2);border-radius:10px;padding:18px;margin:18px 0}
+.analogy-label{font-size:10px;font-weight:600;color:var(--accent3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:7px}
+.ic{font-family:var(--mono);font-size:11px;background:#0d1626;padding:2px 6px;border-radius:4px;color:#f5a623}
+.hl{color:var(--accent3);font-weight:600}
+.nav-footer{margin-top:auto;padding:14px 18px;border-top:1px solid var(--border)}
+.progress-label{font-size:11px;color:var(--muted);margin-bottom:6px}
+.prog-bar-wrap{height:3px;background:var(--border);border-radius:2px}
+.prog-bar-fill{height:3px;background:var(--accent);border-radius:2px;transition:width 0.3s}
+.chapter-nav{display:flex;justify-content:space-between;align-items:center;margin-top:36px;padding-top:18px;border-top:1px solid var(--border)}
+.nav-btn{padding:9px 18px;border-radius:6px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-family:var(--sora);font-size:12px;cursor:pointer;transition:all 0.15s}
 .nav-btn:hover{border-color:var(--accent);color:var(--accent)}
 .nav-btn.primary{background:var(--accent);border-color:var(--accent);color:white}
 .nav-btn.primary:hover{background:#c73550}
-
-/* Mobile responsive */
-@media(max-width:640px){
+.term-grid{display:grid;gap:10px;margin:14px 0}
+.term-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;display:grid;grid-template-columns:160px 1fr;gap:16px;align-items:start}
+.term-name{font-family:var(--mono);font-size:12px;color:var(--accent2);font-weight:500}
+.term-body{}
+.term-def{font-size:12px;color:var(--text);font-weight:600;margin-bottom:3px}
+.term-analogy{font-size:11px;color:var(--muted);line-height:1.6}
+.term-example{font-size:11px;color:var(--accent3);margin-top:4px;font-style:italic}
+.divider{height:1px;background:var(--border);margin:24px 0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0}
+.badge{display:inline-block;font-size:10px;padding:1px 8px;border-radius:4px;font-weight:600;margin-right:4px}
+.badge-green{background:rgba(78,205,196,0.2);color:#4ecdc4}
+.badge-red{background:rgba(233,69,96,0.2);color:#e94560}
+.badge-amber{background:rgba(245,166,35,0.2);color:#f5a623}
+.scenario-box{background:#0d1626;border:1px solid var(--border);border-radius:8px;padding:16px;margin:12px 0}
+.scenario-title{font-size:11px;font-weight:600;color:var(--accent2);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}
+@media(max-width:700px){
   .app{flex-direction:column;height:auto}
   .sidebar{width:100%;min-width:unset;height:auto;border-right:none;border-bottom:1px solid var(--border)}
-  .nav-section{display:flex;flex-wrap:wrap;padding:8px 12px}
+  .nav-section{display:flex;flex-wrap:wrap;padding:6px 10px}
   .nav-label{display:none}
-  .nav-item{padding:6px 12px;font-size:12px;border-left:none;border-bottom:2px solid transparent}
-  .nav-item.active{border-bottom-color:var(--accent);border-left:none}
-  .sidebar-header{padding:16px}
-  .content{padding:24px 20px;max-width:100%}
+  .nav-item{padding:5px 10px;font-size:11px;border-left:none;border-bottom:2px solid transparent}
+  .nav-item.active{border-bottom-color:var(--accent);border-left:none;background:none}
+  .sidebar-header{padding:12px 14px}
+  .content{padding:20px 16px;max-width:100%}
   .nav-footer{display:none}
-  .pipeline-stage{flex-wrap:wrap}
-  .p-stage{min-width:80px}
-  .p-stage::after{display:none}
+  .term-card{grid-template-columns:1fr}
+  .two-col{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -115,500 +131,1185 @@ tr:hover td{background:rgba(255,255,255,0.02)}
   <div class="sidebar">
     <div class="sidebar-header">
       <div class="sidebar-title">Dev Field Guide</div>
-      <div class="sidebar-sub">Internal Audit Automation Team</div>
+      <div class="sidebar-sub">Audit Automation Team · v2</div>
     </div>
     <div class="nav-section">
-      <div class="nav-label">Foundations</div>
-      <div class="nav-item active" onclick="go(0)"><div class="nav-dot"></div>Welcome</div>
-      <div class="nav-item" onclick="go(1)"><div class="nav-dot"></div>The SDLC</div>
-      <div class="nav-item" onclick="go(2)"><div class="nav-dot"></div>Agile & Jira</div>
+      <div class="nav-label">Start Here</div>
+      <div class="nav-item active" onclick="go(0)"><div class="nav-dot"></div>Welcome & How to Use</div>
+      <div class="nav-item" onclick="go(1)"><div class="nav-dot"></div>The SDLC in Depth</div>
+      <div class="nav-item" onclick="go(2)"><div class="nav-dot"></div>Agile & Jira Deep Dive</div>
     </div>
     <div class="nav-section">
       <div class="nav-label">Version Control</div>
-      <div class="nav-item" onclick="go(3)"><div class="nav-dot"></div>Git: The Basics</div>
-      <div class="nav-item" onclick="go(4)"><div class="nav-dot"></div>Branching Strategy</div>
-      <div class="nav-item" onclick="go(5)"><div class="nav-dot"></div>Pull Requests</div>
+      <div class="nav-item" onclick="go(3)"><div class="nav-dot"></div>Git: Core Concepts</div>
+      <div class="nav-item" onclick="go(4)"><div class="nav-dot"></div>Git: Command Notebook</div>
+      <div class="nav-item" onclick="go(5)"><div class="nav-dot"></div>Branching Deep Dive</div>
+      <div class="nav-item" onclick="go(6)"><div class="nav-dot"></div>Pull Requests & Review</div>
     </div>
     <div class="nav-section">
       <div class="nav-label">Pipelines</div>
-      <div class="nav-item" onclick="go(6)"><div class="nav-dot"></div>CI/CD Concepts</div>
-      <div class="nav-item" onclick="go(7)"><div class="nav-dot"></div>Jenkins</div>
-      <div class="nav-item" onclick="go(8)"><div class="nav-dot"></div>Releases</div>
+      <div class="nav-item" onclick="go(7)"><div class="nav-dot"></div>CI/CD: Full Picture</div>
+      <div class="nav-item" onclick="go(8)"><div class="nav-dot"></div>Jenkins Deep Dive</div>
+      <div class="nav-item" onclick="go(9)"><div class="nav-dot"></div>Releases & Deployments</div>
+      <div class="nav-item" onclick="go(10)"><div class="nav-dot"></div>Environments Explained</div>
     </div>
     <div class="nav-section">
-      <div class="nav-label">As a Manager</div>
-      <div class="nav-item" onclick="go(9)"><div class="nav-dot"></div>Code Review</div>
-      <div class="nav-item" onclick="go(10)"><div class="nav-dot"></div>Quick Reference</div>
+      <div class="nav-label">Manager Toolkit</div>
+      <div class="nav-item" onclick="go(11)"><div class="nav-dot"></div>Code Review Guide</div>
+      <div class="nav-item" onclick="go(12)"><div class="nav-dot"></div>Quick Reference A–Z</div>
+      <div class="nav-item" onclick="go(13)"><div class="nav-dot"></div>Terminology Glossary</div>
     </div>
     <div class="nav-footer">
-      <div class="progress-label">Progress: <span id="prog-text">1 / 11</span></div>
-      <div class="prog-bar-wrap"><div class="prog-bar-fill" id="prog-bar" style="width:9%"></div></div>
+      <div class="progress-label">Progress: <span id="prog-text">1 / 14</span></div>
+      <div class="prog-bar-wrap"><div class="prog-bar-fill" id="prog-bar" style="width:7%"></div></div>
     </div>
   </div>
 
   <div class="content" id="main-content">
 
-    <!-- PAGE 0 -->
+    <!-- PAGE 0: Welcome -->
     <div class="page active" id="page-0">
       <div class="chapter-badge">Introduction</div>
       <h1>Your Developer Field Guide</h1>
-      <p class="subtitle">Built specifically for an internal audit automation manager coming from SQL, R, and Power Platform. No fluff — just what you need to lead your team effectively.</p>
+      <p class="subtitle">A deep-dive reference for an internal audit automation manager coming from SQL, R, and Power Platform. Built around your exact stack.</p>
       <div class="card-grid">
-        <div class="card"><div class="card-icon">🗺️</div><div class="card-title">What this covers</div><div class="card-desc">SDLC, Git, Bitbucket, branching, CI/CD, Jenkins, releases, and how to do code review</div></div>
-        <div class="card"><div class="card-icon">🎯</div><div class="card-title">Who it's for</div><div class="card-desc">You — a manager with data skills who needs to lead developers and understand their world</div></div>
-        <div class="card"><div class="card-icon">🔗</div><div class="card-title">Your stack, always</div><div class="card-desc">Every concept is anchored to Jira, Bitbucket, Jenkins, R Markdown, Python, Snowflake</div></div>
+        <div class="card"><div class="card-icon">📚</div><div class="card-title">14 chapters</div><div class="card-desc">SDLC, Agile, Git concepts, Git commands, branching, PRs, CI/CD, Jenkins, releases, environments, code review, and two reference chapters</div></div>
+        <div class="card"><div class="card-icon">🔗</div><div class="card-title">Your stack throughout</div><div class="card-desc">Every concept is anchored to Confluence, Jira, Bitbucket, Jenkins, R Markdown, Python, Snowflake, Control-M, and GREAT</div></div>
+        <div class="card"><div class="card-icon">🧠</div><div class="card-title">Analogy-first</div><div class="card-desc">Every new concept is explained using something you already know — SQL, R, Power Automate, or workpaper workflows</div></div>
       </div>
       <div class="analogy-box">
-        <div class="analogy-label">Your superpower</div>
-        <p>You already understand data pipelines — data flows from a source, gets transformed, and lands somewhere useful. Software development pipelines work <em>exactly the same way</em>. Code flows from a developer's machine, gets validated, and lands in production. This guide maps your existing mental models onto new vocabulary.</p>
+        <div class="analogy-label">Your biggest advantage</div>
+        <p>You already think in pipelines. In your world: data enters a source system → a query extracts it → R transforms it → a report is produced on a schedule. In software development: code enters a repo → a pipeline validates it → Jenkins deploys it → a job runs on a schedule. Same mental model. New vocabulary.</p>
       </div>
-      <h2>How to use this guide</h2>
-      <p>Navigate using the sidebar. Each chapter builds on the last but can also stand alone. Start at chapter 1 and work through — or jump to whatever is most urgent right now.</p>
-      <div class="chapter-nav"><span></span><button class="nav-btn primary" onclick="go(1)">Start with the SDLC →</button></div>
+      <h2>How chapters are organized</h2>
+      <p>The guide moves from concepts to hands-on to reference. Read front-to-back for a full education, or jump directly to what you need today. The Quick Reference and Glossary at the end are designed to be consulted repeatedly.</p>
+      <div class="chapter-nav"><span></span><button class="nav-btn primary" onclick="go(1)">Start: The SDLC →</button></div>
     </div>
 
-    <!-- PAGE 1 -->
+    <!-- PAGE 1: SDLC -->
     <div class="page" id="page-1">
       <div class="chapter-badge">Chapter 1</div>
-      <h1>The Software Development Lifecycle</h1>
-      <p class="subtitle">The SDLC is the end-to-end process of taking an idea and turning it into running software. Your team follows this every single month.</p>
+      <h1>The Software Development Lifecycle (SDLC)</h1>
+      <p class="subtitle">The SDLC is the complete process of taking a business need and turning it into running, maintained software. Your team lives this every month.</p>
       <div class="analogy-box">
-        <div class="analogy-label">SQL analogy</div>
-        <p>Think of the SDLC like building a report. You start with a request (requirements), design the query logic (design), write the SQL (development), test it on sample data (testing), and schedule it to run in production (deployment). Software dev is the same — just bigger, with more people.</p>
+        <div class="analogy-label">The report-building analogy</div>
+        <p>Building a scheduled audit report and building a software feature follow almost identical steps. Someone requests it → you design the logic → you build it → you test it with sample data → you deploy it to run automatically → you maintain it. The SDLC is just this process formalized and scaled up.</p>
       </div>
-      <h2>The six phases — mapped to your world</h2>
-      <div class="flow-steps">
-        <div class="flow-step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Planning / Requirements</div><div class="step-desc">A business team fills out your <span class="highlight">Confluence intake form</span> with the control they want automated. This is requirements gathering. The output is a clear, agreed-upon scope before anyone writes a line of code.</div></div></div>
-        <div class="step-connector"></div>
-        <div class="flow-step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Design</div><div class="step-desc">Your team decides how to build it — which microservice handles data movement, whether you use a direct Snowflake query or an API, what the R Markdown workpaper structure looks like.</div></div></div>
-        <div class="step-connector"></div>
-        <div class="flow-step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Development</div><div class="step-desc">Developers write code in their feature branches. <span class="highlight">Jira tickets</span> for data movement and for the R Markdown workpaper are the units of work. Each ticket = one feature branch in Bitbucket.</div></div></div>
-        <div class="step-connector"></div>
-        <div class="flow-step"><div class="step-num">4</div><div class="step-body"><div class="step-title">Testing</div><div class="step-desc">Code is tested — unit tests check individual functions, integration tests check that data flows correctly end-to-end. Your Jenkins pipeline often runs these automatically.</div></div></div>
-        <div class="step-connector"></div>
-        <div class="flow-step"><div class="step-num">5</div><div class="step-body"><div class="step-title">Deployment</div><div class="step-desc">Once tested, code is merged to <span class="highlight">main</span> and Jenkins deploys it. Your team does this monthly in scheduled releases tied to Jira release versions.</div></div></div>
-        <div class="step-connector"></div>
-        <div class="flow-step"><div class="step-num">6</div><div class="step-body"><div class="step-title">Maintenance</div><div class="step-desc">After deployment, jobs run on schedule via <span class="highlight">Control-M</span>. Bugs are filed as new Jira tickets. The cycle repeats next month.</div></div></div>
+      <h2>Phase 1: Planning & Requirements</h2>
+      <p>This is where work originates. The business comes to you with a control they want automated. Requirements gathering means getting all the details about <em>what</em> is needed — not yet worrying about <em>how</em>.</p>
+      <p>In your world this is the <span class="hl">Confluence intake form</span>. The line of business fills out the control description, the data sources involved, the frequency, and the expected output. A poorly filled intake form = a poorly scoped project = rework later. This is the most important phase because mistakes here compound through every phase that follows.</p>
+      <div class="callout info">
+        <div class="callout-label">What good requirements look like</div>
+        <p>Good requirements are specific, testable, and agreed upon. "Automate the mortgage payment control" is bad. "Every first Monday of the month, extract all loans from the LOAN_PAYMENTS Snowflake table where payment_status = 'delinquent' and as_of_date = last month end, run them through the R Markdown workpaper, and deposit the output PDF into the GREAT MS3 repository" is good.</p>
       </div>
-      <h2>Your monthly cadence fits the SDLC exactly</h2>
+      <h2>Phase 2: Design & Architecture</h2>
+      <p>Once requirements are agreed on, the team decides <em>how</em> to build it. This is architecture. Which microservice handles what? Does the data come via API call or direct Snowflake query? What does the R Markdown workpaper structure look like? Where do secrets (passwords, tokens) get stored securely?</p>
+      <p>Design decisions made here are expensive to reverse. A bad database schema, a wrong API choice, a poorly structured microservice — these become technical debt that slows your team down for months or years.</p>
+      <h2>Phase 3: Development</h2>
+      <p>Developers write the actual code. Each Jira ticket represents one unit of work. Each unit of work gets its own Git branch. Developers work in isolation on their branch, commit often, and push to Bitbucket so their work is backed up and visible.</p>
+      <p>Good development includes writing the code <em>and</em> writing tests for it. Tests are code that checks your code works. Think of them like data validation rules — a test says "given this input, I expect this output" and fails loudly if it doesn't match.</p>
+      <h2>Phase 4: Testing</h2>
+      <p>There are several layers of testing. Understanding all of them matters because as manager you'll hear these terms in code reviews and Jenkins logs.</p>
       <table>
-        <tr><th>Week</th><th>What your team is doing</th><th>SDLC phase</th></tr>
-        <tr><td>Week 1-2</td><td>Working Jira tickets, writing code in feature branches</td><td>Development</td></tr>
-        <tr><td>Week 2-3</td><td>Code review, testing, fixing bugs found in review</td><td>Testing</td></tr>
-        <tr><td>Week 3-4</td><td>Merging to main, Jenkins runs, deploy to production</td><td>Deployment</td></tr>
-        <tr><td>Ongoing</td><td>Control-M runs jobs, monitoring, new intake forms arrive</td><td>Maintenance → Planning</td></tr>
+        <tr><th>Test type</th><th>What it checks</th><th>Example in your world</th></tr>
+        <tr><td><span class="pill pill-blue">Unit test</span></td><td>One small function in isolation</td><td>Does <span class="ic">calculate_delinquency_rate(loans)</span> return the right number for a given list?</td></tr>
+        <tr><td><span class="pill pill-green">Integration test</span></td><td>Multiple components working together</td><td>Does the Python script connect to Snowflake, run the query, and produce a DataFrame with the right columns?</td></tr>
+        <tr><td><span class="pill pill-amber">Regression test</span></td><td>That old things still work after new changes</td><td>After adding a new column to the workpaper, do all the old sections still render correctly?</td></tr>
+        <tr><td><span class="pill pill-red">End-to-end test</span></td><td>The full workflow from trigger to output</td><td>Does the Control-M job trigger, extract from Snowflake, process in R, and produce the final PDF — all without errors?</td></tr>
       </table>
+      <h2>Phase 5: Deployment</h2>
+      <p>Deployment is moving tested, approved code from the development environment into production where it runs for real. Your team does this monthly. Jenkins automates the steps — it doesn't require a developer to manually copy files or run scripts on the production server.</p>
+      <p>A good deployment is boring. Nothing unexpected happens. The automation takes over and the new version is live. A bad deployment is exciting — and excitement in production is never good.</p>
+      <h2>Phase 6: Maintenance & Monitoring</h2>
+      <p>After deployment, Control-M runs your jobs on schedule. But things break. Snowflake table schemas change. APIs get updated. Business rules evolve. Maintenance is the ongoing work of keeping deployed software healthy. New bugs get filed as Jira tickets and the cycle begins again.</p>
+      <div class="callout tip">
+        <div class="callout-label">Manager insight</div>
+        <p>A huge percentage of real-world development work is maintenance — not greenfield builds. When your team is "slower than expected," they're often dealing with maintenance work that wasn't on the roadmap: a Snowflake view changed and broke two workpapers, a library was updated and broke a Python script, a Control-M job started timing out. Budget time for this.</p>
+      </div>
       <div class="chapter-nav">
-        <button class="nav-btn" onclick="go(0)">← Back</button>
+        <button class="nav-btn" onclick="go(0)">← Welcome</button>
         <button class="nav-btn primary" onclick="go(2)">Agile & Jira →</button>
       </div>
     </div>
 
-    <!-- PAGE 2 -->
+    <!-- PAGE 2: Agile -->
     <div class="page" id="page-2">
       <div class="chapter-badge">Chapter 2</div>
       <h1>Agile & Your Jira World</h1>
-      <p class="subtitle">Agile is a philosophy of building software in short cycles with frequent feedback. Jira is the tool you use to run it.</p>
-      <h2>What "Agile" actually means</h2>
-      <p>Instead of planning everything upfront for 6 months and delivering once, Agile teams work in short cycles called <span class="highlight">sprints</span>. At the end of each sprint, something working is delivered, reviewed, and adjusted.</p>
+      <p class="subtitle">Agile is both a philosophy and a set of practices for delivering software in short, iterative cycles. Jira is the operational tool that runs it day-to-day.</p>
+      <h2>Waterfall vs Agile — why it matters</h2>
+      <p>The old way (Waterfall) was: spend months gathering all requirements, then months designing, then months building, then months testing, then deploy once. The problem: by the time you deployed, the business had changed. You'd built the wrong thing.</p>
+      <p>Agile says: deliver something working every few weeks, get feedback, adjust, repeat. Each cycle is called a <span class="hl">sprint</span>. Shorter feedback loops mean fewer wrong turns.</p>
       <div class="callout">
-        <div class="callout-label">Your context</div>
-        <p>Your team's monthly release cycle is essentially a 4-week sprint. Intake → ticket creation → development → review → deploy. Each release is a sprint with a hard monthly deadline.</p>
+        <div class="callout-label">Your team's version</div>
+        <p>Your monthly release cadence is Agile-style. Intake → design → build → review → deploy, all within 4 weeks. The hard monthly deadline functions like a sprint deadline. You're already doing it — you just may not have had the vocabulary for it.</p>
       </div>
-      <h2>The Jira hierarchy</h2>
+      <h2>The Jira hierarchy — fully explained</h2>
+      <p>Jira organizes work in a hierarchy. Understanding this helps you structure tickets correctly so the team knows exactly what to work on and how it ladders up to business goals.</p>
+      <div class="term-grid">
+        <div class="term-card">
+          <div class="term-name">Epic</div>
+          <div class="term-body">
+            <div class="term-def">A large business objective or theme of work</div>
+            <div class="term-analogy">Think of it as a chapter in a book. It contains many stories and may span multiple monthly releases.</div>
+            <div class="term-example">Example: "Q3 Mortgage Servicing Controls Automation"</div>
+          </div>
+        </div>
+        <div class="term-card">
+          <div class="term-name">Story</div>
+          <div class="term-body">
+            <div class="term-def">A user-facing feature written from the user's perspective</div>
+            <div class="term-analogy">Format: "As a [user], I want [feature] so that [business value]." Forces the team to think about why they're building something.</div>
+            <div class="term-example">Example: "As an auditor, I want the payment delinquency control to run automatically so I don't have to manually extract data each month"</div>
+          </div>
+        </div>
+        <div class="term-card">
+          <div class="term-name">Task</div>
+          <div class="term-body">
+            <div class="term-def">A specific technical unit of work — one developer, one Jira ticket, one Git branch</div>
+            <div class="term-analogy">This is what a developer actually works on day-to-day. Concrete, estimable, completable in days not weeks.</div>
+            <div class="term-example">Example: "Build Snowflake extraction query for delinquent loans" or "Create R Markdown workpaper template for payment controls"</div>
+          </div>
+        </div>
+        <div class="term-card">
+          <div class="term-name">Bug</div>
+          <div class="term-body">
+            <div class="term-def">Something that is broken and needs fixing</div>
+            <div class="term-analogy">Bugs go through the same workflow as tasks. They have priority levels — a bug that crashes production workpapers is P1 (fix immediately), a cosmetic formatting issue is P3 (fix when convenient).</div>
+            <div class="term-example">Example: "Workpaper crashes when loan_count exceeds 50,000 rows"</div>
+          </div>
+        </div>
+        <div class="term-card">
+          <div class="term-name">Subtask</div>
+          <div class="term-body">
+            <div class="term-def">A checklist item inside a task — too small for its own ticket but worth tracking</div>
+            <div class="term-analogy">If a task has 3-4 discrete steps, subtasks track each step's completion.</div>
+            <div class="term-example">Example: Under "Build Snowflake extraction": "Write query", "Add error handling", "Write unit test", "Get peer review"</div>
+          </div>
+        </div>
+      </div>
+      <h2>Jira ticket states — the lifecycle</h2>
+      <p>Every ticket moves through states. Understanding what each state means helps you spot bottlenecks when things slow down.</p>
       <table>
-        <tr><th>Jira item</th><th>What it is</th><th>Example in your world</th></tr>
-        <tr><td><span class="pill pill-blue">Epic</span></td><td>A large body of work</td><td>"Automate Controls for Mortgage Servicing Q2"</td></tr>
-        <tr><td><span class="pill pill-amber">Story</span></td><td>A user-facing feature</td><td>"As an auditor, I can run the payment controls report automatically"</td></tr>
-        <tr><td><span class="pill pill-green">Task</span></td><td>A specific unit of technical work</td><td>"Build data movement pipeline from Snowflake to GREAT MS3"</td></tr>
-        <tr><td><span class="pill pill-red">Bug</span></td><td>Something broken</td><td>"R Markdown workpaper crashes when loan count exceeds 50k"</td></tr>
-        <tr><td><span class="pill pill-blue">Subtask</span></td><td>A step inside a task</td><td>"Write SQL query for loan balance extraction"</td></tr>
+        <tr><th>State</th><th>What it means</th><th>Who owns it</th><th>Bottleneck sign</th></tr>
+        <tr><td><span class="pill pill-blue">Backlog</span></td><td>Exists but not in active sprint</td><td>Manager (you)</td><td>Backlog growing faster than it's being worked</td></tr>
+        <tr><td><span class="pill pill-blue">To Do</span></td><td>In sprint, not started yet</td><td>Assigned developer</td><td>Too many To Do items on day 10 of sprint</td></tr>
+        <tr><td><span class="pill pill-amber">In Progress</span></td><td>Developer actively working it</td><td>Developer</td><td>Ticket stuck In Progress for >5 days = developer needs help</td></tr>
+        <tr><td><span class="pill pill-amber">In Review</span></td><td>PR opened, waiting for code review</td><td>Reviewer (you)</td><td>PRs piling up In Review = you're the bottleneck</td></tr>
+        <tr><td><span class="pill pill-green">Testing</span></td><td>Code merged, validation in progress</td><td>QA / developer</td><td>Stuck in Testing = test environment problem</td></tr>
+        <tr><td><span class="pill pill-green">Done</span></td><td>Merged, tested, ticket closed</td><td>—</td><td>—</td></tr>
       </table>
-      <h2>Ticket states</h2>
-      <div class="pipeline-stage">
-        <div class="p-stage"><div class="p-stage-label">Status</div><div class="p-stage-name">To Do</div><div class="p-stage-tool">In backlog</div></div>
-        <div class="p-stage"><div class="p-stage-label">Status</div><div class="p-stage-name">In Progress</div><div class="p-stage-tool">Dev working</div></div>
-        <div class="p-stage"><div class="p-stage-label">Status</div><div class="p-stage-name">In Review</div><div class="p-stage-tool">PR open</div></div>
-        <div class="p-stage"><div class="p-stage-label">Status</div><div class="p-stage-name">Testing</div><div class="p-stage-tool">QA / validation</div></div>
-        <div class="p-stage"><div class="p-stage-label">Status</div><div class="p-stage-name">Done</div><div class="p-stage-tool">Merged & closed</div></div>
-      </div>
-      <h2>As a manager, your Jira responsibilities</h2>
+      <h2>Sprint ceremonies — what actually happens in each meeting</h2>
       <div class="card-grid">
-        <div class="card"><div class="card-title">Backlog grooming</div><div class="card-desc">Review incoming intake forms, create Epics and Stories, break them into Tasks before the sprint starts</div></div>
-        <div class="card"><div class="card-title">Sprint planning</div><div class="card-desc">Decide which tickets are in-scope for this monthly release based on team capacity</div></div>
-        <div class="card"><div class="card-title">Release management</div><div class="card-desc">In Jira, create a Release version, attach tickets to it — this is what Jenkins deploys</div></div>
+        <div class="card"><div class="card-title">Sprint Planning</div><div class="card-desc">At the start of the month: select tickets from backlog for this sprint. Estimate effort. Assign to developers. Output: a committed sprint backlog.</div></div>
+        <div class="card"><div class="card-title">Daily Standup</div><div class="card-desc">15-minute daily check-in. Each person: what did I do yesterday, what am I doing today, any blockers? Not a status report — it's a blocker-clearing meeting.</div></div>
+        <div class="card"><div class="card-title">Sprint Review</div><div class="card-desc">End of sprint: demo what was built to stakeholders. Get feedback. Did we build the right thing?</div></div>
+        <div class="card"><div class="card-title">Retrospective</div><div class="card-desc">Team-internal: what went well, what didn't, what do we change next sprint? The most valuable meeting for continuous improvement.</div></div>
+      </div>
+      <h2>Story points — estimating work</h2>
+      <p>Story points are a relative measure of effort — not hours. A 1-point task is trivially easy. An 8-point task is complex with many unknowns. Teams use the Fibonacci sequence (1, 2, 3, 5, 8, 13) intentionally — the gaps between large numbers reflect increasing uncertainty.</p>
+      <div class="callout warn">
+        <div class="callout-label">Common mistake</div>
+        <p>New managers often try to convert story points to hours. Don't. A task that's 5 points for a senior developer might be 8 points for a junior developer. Story points measure complexity relative to the team, not absolute time. Use team velocity (average points completed per sprint) to predict delivery, not individual point-to-hour conversion.</p>
       </div>
       <div class="chapter-nav">
         <button class="nav-btn" onclick="go(1)">← SDLC</button>
-        <button class="nav-btn primary" onclick="go(3)">Git: The Basics →</button>
+        <button class="nav-btn primary" onclick="go(3)">Git: Core Concepts →</button>
       </div>
     </div>
 
-    <!-- PAGE 3 -->
+    <!-- PAGE 3: Git Core -->
     <div class="page" id="page-3">
       <div class="chapter-badge">Chapter 3</div>
-      <h1>Git: The Basics</h1>
-      <p class="subtitle">Git is version control — it tracks every change to every file, by every developer, with a full history. Bitbucket is where your team stores Git repositories.</p>
+      <h1>Git: Core Concepts</h1>
+      <p class="subtitle">Git is a distributed version control system. It tracks every change to every file, who made it, when, and why. Bitbucket is the hosted server where your team's Git repositories live.</p>
       <div class="analogy-box">
-        <div class="analogy-label">R analogy</div>
-        <p>Think of Git like R Markdown with version history on steroids. Instead of saving <span class="inline-code">workpaper_v2_FINAL_real_final.Rmd</span>, Git tracks every change automatically with a message explaining what changed and why. You can always go back to any previous state.</p>
+        <div class="analogy-label">The R workpaper analogy</div>
+        <p>Imagine if R Studio automatically saved every version of every Rmd file you ever worked on, tagged each save with your name, timestamp, and a note about what you changed — and let you instantly compare any two versions or restore any previous state. That's Git. No more <span class="ic">workpaper_v3_FINAL_actual_final_2.Rmd</span>.</p>
       </div>
-      <h2>Core concepts</h2>
-      <table>
-        <tr><th>Term</th><th>What it means</th><th>Real-world analogy</th></tr>
-        <tr><td><span class="inline-code">repository</span></td><td>A folder tracked by Git — all your code + full history</td><td>An R project folder, but every save is logged forever</td></tr>
-        <tr><td><span class="inline-code">commit</span></td><td>A saved snapshot of changes with a message</td><td>Clicking "Save" on an R script, but labeled</td></tr>
-        <tr><td><span class="inline-code">branch</span></td><td>An isolated copy of the code to work in</td><td>A duplicate of your Rmd file to experiment safely</td></tr>
-        <tr><td><span class="inline-code">merge</span></td><td>Combining changes from one branch into another</td><td>Copying your tested changes back into the main file</td></tr>
-        <tr><td><span class="inline-code">push</span></td><td>Uploading your local commits to Bitbucket</td><td>Saving your R script to SharePoint for teammates</td></tr>
-        <tr><td><span class="inline-code">pull</span></td><td>Downloading the latest code from Bitbucket</td><td>Refreshing SharePoint to get a teammate's latest file</td></tr>
-        <tr><td><span class="inline-code">clone</span></td><td>Copying a full repo from Bitbucket to your machine</td><td>Downloading a project folder from SharePoint for the first time</td></tr>
-      </table>
-      <h2>The daily Git workflow</h2>
-      <div class="code-block"><code><span class="code-comment"># 1. Start work on a new Jira ticket (e.g., AUDIT-142)</span>
-<span class="code-cmd">git checkout</span> <span class="code-keyword">-b</span> <span class="code-string">feature/AUDIT-142-payment-controls-pipeline</span>
-
-<span class="code-comment"># 2. Write code, then save a snapshot</span>
-<span class="code-cmd">git add</span> .
-<span class="code-cmd">git commit</span> <span class="code-keyword">-m</span> <span class="code-string">"AUDIT-142: add Snowflake query for loan balances"</span>
-
-<span class="code-comment"># 3. Upload to Bitbucket so team can see it</span>
-<span class="code-cmd">git push</span> origin feature/AUDIT-142-payment-controls-pipeline
-
-<span class="code-comment"># 4. Open a Pull Request in Bitbucket for code review</span></code></div>
-      <div class="callout warn">
-        <div class="callout-label">Key rule</div>
-        <p>Developers should never commit directly to main. All work happens on a feature branch, gets reviewed via a Pull Request, then gets merged. This protects production code.</p>
+      <h2>The fundamental Git concepts</h2>
+      <div class="term-grid">
+        <div class="term-card">
+          <div class="term-name">repository</div>
+          <div class="term-body">
+            <div class="term-def">A project folder that Git is tracking — contains all code AND the complete history of every change ever made</div>
+            <div class="term-analogy">Like an R project folder, except every file save since day one is preserved forever. You can travel back to any point in time.</div>
+            <div class="term-example">Your team has one repo per microservice: MS1 repo, MS2 repo, MS3 repo, MS4 repo, plus repos for R Markdown workpapers and Python notebooks.</div>
+          </div>
+        </div>
+        <div class="term-card">
+          <div class="term-name">commit</div>
+          <div class="term-body">
+            <div class="term-def">A permanent snapshot of all staged changes at a point in time, with a message explaining what changed</div>
+            <div class="term-analogy">Like pressing Save in R, but Git forces you to write a note explaining why you saved. Each commit gets a unique ID (a hash like <span class="ic">a3f9c2d</span>).</div>
+            <div class="term-example">"AUDIT-142: add NULL check for loan_status in payment query" — a good commit message. "fixed stuff" — a bad one.</div>
+          </div>
+        </div>
+        <div class="term-card">
+          <div class="term-name">staging area</div>
+          <div class="term-body">
+            <div class="term-def">A holding area where you collect changes before committing them — you choose exactly what goes into each commit</div>
+            <div class="term-analogy">Like a drafts folder. You make changes to 5 files, but you only stage 3 of them for this commit. The other 2 will go in the next commit.</div>
+            <div class="term-example"><span class="ic">git add snowflake_query.py</span> stages just that file. <span class="ic">git add .</span> stages everything changed.</div>
+          </div>
+        </div>
+        <div class="term-card">
+          <div class="term-name">branch</div>
+          <div class="term-body">
+            <div class="term-def">A parallel, isolated version of the codebase where you can make changes without affecting anyone else's work</div>
+            <div class="term-analogy">Like having your own personal copy of the entire codebase that's siloed from your teammates. You can break things, experiment, and rebuild — it doesn't touch their work.</div>
+            <div class="term-example">Developer A works on <span class="ic">feature/AUDIT-142</span> while Developer B works on <span class="ic">feature/AUDIT-155</span>. Neither sees the other's changes until merge.</div>
+          </div>
+        </div>
+        <div class="term-card">
+          <div class="term-name">merge</div>
+          <div class="term-body">
+            <div class="term-def">Combining the commit history from one branch into another — bringing work together</div>
+            <div class="term-analogy">Like copying your tested R script changes into the shared team version of the file. Git does it automatically and handles conflicts.</div>
+            <div class="term-example">Feature branch → develop branch merge happens via Pull Request. Develop → main merge happens at monthly release.</div>
+          </div>
+        </div>
+        <div class="term-card">
+          <div class="term-name">push</div>
+          <div class="term-body">
+            <div class="term-def">Uploading your local commits to the remote repository on Bitbucket so others can see your work</div>
+            <div class="term-analogy">Like saving your R script to the shared SharePoint folder so teammates can see it. Until you push, your work only exists on your machine.</div>
+            <div class="term-example"><span class="ic">git push origin feature/AUDIT-142</span> — uploads your branch to Bitbucket.</div>
+          </div>
+        </div>
+        <div class="term-card">
+          <div class="term-name">pull</div>
+          <div class="term-body">
+            <div class="term-def">Downloading the latest commits from Bitbucket to your local machine — syncing up with what teammates have done</div>
+            <div class="term-analogy">Like refreshing SharePoint to get your teammate's latest file version. Always pull before starting work each day.</div>
+            <div class="term-example"><span class="ic">git pull origin develop</span> — get the latest develop branch before starting a new feature.</div>
+          </div>
+        </div>
+        <div class="term-card">
+          <div class="term-name">clone</div>
+          <div class="term-body">
+            <div class="term-def">Downloading a complete copy of a remote repo (including all history) to your local machine for the first time</div>
+            <div class="term-analogy">Like downloading a whole project folder from SharePoint for the first time. You only clone once per repo — after that you use pull.</div>
+            <div class="term-example"><span class="ic">git clone https://bitbucket.org/yourteam/audit-ms1.git</span></div>
+          </div>
+        </div>
+        <div class="term-card">
+          <div class="term-name">remote</div>
+          <div class="term-body">
+            <div class="term-def">The version of the repository that lives on Bitbucket (as opposed to your local copy on your laptop)</div>
+            <div class="term-analogy">The SharePoint version vs the copy on your local drive. Remote is the canonical, shared version. Your local copy is your workspace.</div>
+            <div class="term-example"><span class="ic">origin</span> is the default name for the remote. <span class="ic">git remote -v</span> shows you where it points.</div>
+          </div>
+        </div>
+        <div class="term-card">
+          <div class="term-name">HEAD</div>
+          <div class="term-body">
+            <div class="term-def">A pointer that tells Git "this is the commit you're currently on" — your current position in history</div>
+            <div class="term-analogy">Like a bookmark in a book. It marks where you are right now. When you switch branches, HEAD moves to point at that branch.</div>
+            <div class="term-example">When Git says <span class="ic">HEAD -> main</span> it means you're currently on the main branch, at its latest commit.</div>
+          </div>
+        </div>
       </div>
       <div class="chapter-nav">
         <button class="nav-btn" onclick="go(2)">← Agile & Jira</button>
-        <button class="nav-btn primary" onclick="go(4)">Branching Strategy →</button>
+        <button class="nav-btn primary" onclick="go(4)">Git Command Notebook →</button>
       </div>
     </div>
 
-    <!-- PAGE 4 -->
+    <!-- PAGE 4: Git Commands -->
     <div class="page" id="page-4">
       <div class="chapter-badge">Chapter 4</div>
-      <h1>Branching Strategy</h1>
-      <p class="subtitle">Branches let multiple developers work in parallel without stepping on each other. Your team likely uses a strategy called GitFlow or a simplified version of it.</p>
-      <h2>Your branch hierarchy</h2>
-      <div class="code-block"><code><span class="code-comment"># main — production-ready code, deployed monthly</span>
-<span style="color:#4ecdc4">main</span>
-  └── <span style="color:#f5a623">develop</span>  <span class="code-comment">(integration branch — all features merge here first)</span>
-        ├── <span style="color:#6baaff">feature/AUDIT-142-payment-controls</span>
-        ├── <span style="color:#6baaff">feature/AUDIT-155-workpaper-rmd-update</span>
-        └── <span style="color:#6baaff">feature/AUDIT-161-snowflake-api-connector</span>
-  └── <span style="color:#e94560">hotfix/fix-loan-balance-null-crash</span>  <span class="code-comment">(emergency → main directly)</span></code></div>
-      <h2>Branch naming conventions</h2>
-      <div class="code-block"><code><span class="code-comment"># Feature work (tied to a Jira ticket)</span>
-<span class="code-string">feature/AUDIT-142-payment-controls-pipeline</span>
+      <h1>Git: Command Notebook</h1>
+      <p class="subtitle">Your personal reference for frequently used Git commands — organized by situation so you can find what you need fast.</p>
 
-<span class="code-comment"># Bug fix</span>
-<span class="code-string">bugfix/AUDIT-163-null-loan-id-crash</span>
+      <h2>Getting oriented — commands you run to understand where you are</h2>
+      <div class="code-block"><code><span class="cc"># What branch am I on? What files have I changed?</span>
+<span class="cmd">git status</span>
 
-<span class="code-comment"># Emergency production fix</span>
-<span class="code-string">hotfix/AUDIT-170-jenkins-job-timeout</span>
+<span class="cc"># See recent commit history — one line per commit</span>
+<span class="cmd">git log</span> <span class="ck">--oneline</span>
 
-<span class="code-comment"># Release preparation</span>
-<span class="code-string">release/2024-07</span></code></div>
-      <h2>The merge flow</h2>
-      <div class="flow-steps">
-        <div class="flow-step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Developer creates a feature branch from develop</div><div class="step-desc">Work is isolated. Other developers continue unaffected on their own branches.</div></div></div>
-        <div class="step-connector"></div>
-        <div class="flow-step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Feature complete → Pull Request opened to develop</div><div class="step-desc">Code review happens here. You review, leave comments, approve or request changes.</div></div></div>
-        <div class="step-connector"></div>
-        <div class="flow-step"><div class="step-num">3</div><div class="step-body"><div class="step-title">All features merged to develop</div><div class="step-desc">Integration testing happens on develop — do all the pieces work together?</div></div></div>
-        <div class="step-connector"></div>
-        <div class="flow-step"><div class="step-num">4</div><div class="step-body"><div class="step-title">Release branch cut from develop</div><div class="step-desc">A <span class="inline-code">release/2024-07</span> branch is created. Only bug fixes go here — no new features.</div></div></div>
-        <div class="step-connector"></div>
-        <div class="flow-step"><div class="step-num">5</div><div class="step-body"><div class="step-title">Release merged to main → Jenkins deploys</div><div class="step-desc">The monthly deployment fires. Jenkins picks up the merge to main and runs the pipeline.</div></div></div>
+<span class="cc"># See recent commits with more detail (author, date, full message)</span>
+<span class="cmd">git log</span> <span class="ck">--oneline --graph --decorate --all</span>
+
+<span class="cc"># List all branches (local only)</span>
+<span class="cmd">git branch</span>
+
+<span class="cc"># List all branches including remote Bitbucket branches</span>
+<span class="cmd">git branch</span> <span class="ck">-a</span>
+
+<span class="cc"># Show what changed in a specific commit (use the short hash from git log)</span>
+<span class="cmd">git show</span> a3f9c2d
+
+<span class="cc"># Show line-by-line diff of what you've changed but not yet staged</span>
+<span class="cmd">git diff</span>
+
+<span class="cc"># Show diff of what's staged (ready to commit) vs last commit</span>
+<span class="cmd">git diff</span> <span class="ck">--staged</span>
+
+<span class="cc"># Who last changed each line of a file? (great for blame/investigation)</span>
+<span class="cmd">git blame</span> snowflake_query.py</code></div>
+
+      <h2>Daily development workflow</h2>
+      <div class="code-block"><code><span class="cc"># Start your day — get the latest from Bitbucket</span>
+<span class="cmd">git pull</span> origin develop
+
+<span class="cc"># Create a new branch for your Jira ticket</span>
+<span class="cmd">git checkout</span> <span class="ck">-b</span> <span class="cs">feature/AUDIT-142-payment-controls</span>
+
+<span class="cc"># ... do your work, write code ...</span>
+
+<span class="cc"># See what you changed</span>
+<span class="cmd">git status</span>
+
+<span class="cc"># Stage a specific file</span>
+<span class="cmd">git add</span> snowflake_query.py
+
+<span class="cc"># Stage everything changed</span>
+<span class="cmd">git add</span> .
+
+<span class="cc"># Commit with a descriptive message (Jira ticket ID first!)</span>
+<span class="cmd">git commit</span> <span class="ck">-m</span> <span class="cs">"AUDIT-142: add NULL check for loan_status in extraction query"</span>
+
+<span class="cc"># Push your branch up to Bitbucket</span>
+<span class="cmd">git push</span> origin feature/AUDIT-142-payment-controls
+
+<span class="cc"># If Bitbucket doesn't know about this branch yet (first push)</span>
+<span class="cmd">git push</span> <span class="ck">--set-upstream</span> origin feature/AUDIT-142-payment-controls</code></div>
+
+      <h2>Switching between branches</h2>
+      <div class="code-block"><code><span class="cc"># Switch to an existing branch</span>
+<span class="cmd">git checkout</span> develop
+
+<span class="cc"># Modern syntax (Git 2.23+) — same thing</span>
+<span class="cmd">git switch</span> develop
+
+<span class="cc"># Create a new branch AND switch to it in one step</span>
+<span class="cmd">git checkout</span> <span class="ck">-b</span> feature/AUDIT-155-new-workpaper
+
+<span class="cc"># Checkout a remote branch that exists on Bitbucket but not locally yet</span>
+<span class="cmd">git checkout</span> <span class="ck">-b</span> feature/AUDIT-155 origin/feature/AUDIT-155</code></div>
+
+      <h2>Undoing things — the most important section</h2>
+      <div class="code-block"><code><span class="cc"># Unstage a file (remove from staging area, keep your changes)</span>
+<span class="cmd">git restore</span> <span class="ck">--staged</span> snowflake_query.py
+
+<span class="cc"># Discard ALL changes to a file (permanently — goes back to last commit)</span>
+<span class="cmd">git restore</span> snowflake_query.py
+
+<span class="cc"># Undo the last commit but KEEP your changes (staged and ready)</span>
+<span class="cmd">git reset</span> <span class="ck">--soft</span> HEAD~1
+
+<span class="cc"># Undo the last commit and UNSTAGE the changes (changes still in files)</span>
+<span class="cmd">git reset</span> HEAD~1
+
+<span class="cc"># SAFELY undo a commit by creating a new "reverse" commit (use on shared branches)</span>
+<span class="cmd">git revert</span> HEAD
+
+<span class="cc"># Why revert vs reset? Reset rewrites history — dangerous on shared branches.</span>
+<span class="cc"># Revert adds a new commit that undoes the change — safe on shared branches.</span></code></div>
+      <div class="callout warn">
+        <div class="callout-label">Critical rule on shared branches</div>
+        <p>Never use <span class="ic">git reset</span> on <span class="ic">main</span> or <span class="ic">develop</span> — branches your teammates are also using. Reset rewrites Git history, which will corrupt your teammates' local copies. On shared branches, always use <span class="ic">git revert</span> instead. On your own personal feature branch, reset is fine.</p>
       </div>
-      <div class="callout tip">
-        <div class="callout-label">Manager tip</div>
-        <p>Enforce branch naming in your team. Every branch should have a Jira ticket number in its name so you can always connect code changes to business requirements. "testing" or "gabe-changes-2" are not acceptable branch names.</p>
-      </div>
+
+      <h2>Stashing — saving work temporarily</h2>
+      <div class="code-block"><code><span class="cc"># You're mid-work and need to switch branches urgently</span>
+<span class="cc"># Stash saves your uncommitted changes so you can switch</span>
+<span class="cmd">git stash</span>
+
+<span class="cc"># Switch to another branch, do emergency work, come back</span>
+<span class="cmd">git checkout</span> hotfix/urgent-fix
+<span class="cc"># ... fix the thing ...</span>
+<span class="cmd">git checkout</span> feature/AUDIT-142
+
+<span class="cc"># Restore your stashed work</span>
+<span class="cmd">git stash pop</span>
+
+<span class="cc"># See all stashes (you can have multiple)</span>
+<span class="cmd">git stash list</span>
+
+<span class="cc"># Apply a specific stash without removing it from the list</span>
+<span class="cmd">git stash apply</span> stash@{0}</code></div>
+
+      <h2>Working with Bitbucket remotes</h2>
+      <div class="code-block"><code><span class="cc"># Fetch all changes from Bitbucket without merging them (safe to run anytime)</span>
+<span class="cmd">git fetch</span> origin
+
+<span class="cc"># Pull = fetch + merge in one step</span>
+<span class="cmd">git pull</span> origin develop
+
+<span class="cc"># See where your remote (origin) is pointing</span>
+<span class="cmd">git remote</span> <span class="ck">-v</span>
+
+<span class="cc"># Delete a remote branch (after a PR is merged)</span>
+<span class="cmd">git push</span> origin <span class="ck">--delete</span> feature/AUDIT-142-payment-controls
+
+<span class="cc"># Delete a local branch (after it's merged and you're done)</span>
+<span class="cmd">git branch</span> <span class="ck">-d</span> feature/AUDIT-142-payment-controls
+
+<span class="cc"># Force delete a local branch (if it has unmerged commits — be careful)</span>
+<span class="cmd">git branch</span> <span class="ck">-D</span> feature/AUDIT-142-payment-controls</code></div>
+
+      <h2>Tags — marking releases</h2>
+      <div class="code-block"><code><span class="cc"># Create an annotated tag (use for releases — includes message)</span>
+<span class="cmd">git tag</span> <span class="ck">-a</span> v2024.07.0 <span class="ck">-m</span> <span class="cs">"July 2024 monthly release"</span>
+
+<span class="cc"># Push the tag to Bitbucket</span>
+<span class="cmd">git push</span> origin v2024.07.0
+
+<span class="cc"># Push ALL local tags to Bitbucket at once</span>
+<span class="cmd">git push</span> origin <span class="ck">--tags</span>
+
+<span class="cc"># List all tags</span>
+<span class="cmd">git tag</span> <span class="ck">--list</span>
+
+<span class="cc"># See what commit a tag points to</span>
+<span class="cmd">git show</span> v2024.07.0
+
+<span class="cc"># Check out a specific release version (read-only — detached HEAD state)</span>
+<span class="cmd">git checkout</span> v2024.06.0</code></div>
+
+      <h2>Investigating problems</h2>
+      <div class="code-block"><code><span class="cc"># Find which commit introduced a bug using binary search</span>
+<span class="cmd">git bisect start</span>
+<span class="cmd">git bisect bad</span>                    <span class="cc"># current commit is broken</span>
+<span class="cmd">git bisect good</span> v2024.06.0        <span class="cc"># this old version was fine</span>
+<span class="cc"># Git checks out the midpoint — test it, then tell Git:</span>
+<span class="cmd">git bisect good</span>                    <span class="cc"># or: git bisect bad</span>
+<span class="cc"># Repeat until Git identifies the exact breaking commit</span>
+<span class="cmd">git bisect reset</span>                   <span class="cc"># return to HEAD when done</span>
+
+<span class="cc"># Search commit messages for a keyword</span>
+<span class="cmd">git log</span> <span class="ck">--grep=</span><span class="cs">"AUDIT-142"</span>
+
+<span class="cc"># See all commits that changed a specific file</span>
+<span class="cmd">git log</span> <span class="ck">--follow</span> snowflake_query.py</code></div>
+
       <div class="chapter-nav">
-        <button class="nav-btn" onclick="go(3)">← Git Basics</button>
-        <button class="nav-btn primary" onclick="go(5)">Pull Requests →</button>
+        <button class="nav-btn" onclick="go(3)">← Git Concepts</button>
+        <button class="nav-btn primary" onclick="go(5)">Branching Deep Dive →</button>
       </div>
     </div>
 
-    <!-- PAGE 5 -->
+    <!-- PAGE 5: Branching -->
     <div class="page" id="page-5">
       <div class="chapter-badge">Chapter 5</div>
-      <h1>Pull Requests & Code Review</h1>
-      <p class="subtitle">A Pull Request (PR) is a formal request to merge one branch into another. It's also the primary place where code quality is enforced.</p>
+      <h1>Branching Deep Dive</h1>
+      <p class="subtitle">Branching is one of Git's most powerful features and the source of most developer confusion. This chapter explains every branching concept including the ones that trip up experienced developers.</p>
+
+      <h2>What a branch actually is under the hood</h2>
+      <p>A branch is not a copy of files. It's a lightweight pointer to a commit. When you create a new branch, Git just creates a new pointer. No files are duplicated. This is why creating branches in Git is nearly instant — unlike older systems that literally copied files.</p>
       <div class="analogy-box">
-        <div class="analogy-label">Audit analogy</div>
-        <p>A Pull Request is like a workpaper review. The developer is the preparer. You (or a peer) are the reviewer. The PR stays open until the reviewer is satisfied. This is essentially the same QA process your audit team does on workpapers — just for code.</p>
+        <div class="analogy-label">The sticky note analogy</div>
+        <p>Imagine the full history of your codebase as a timeline of saves. A branch is just a sticky note attached to one of those saves that says "this is where this line of work lives." When you make a new commit, the sticky note moves forward to point at your new commit. <span class="ic">main</span> is just another sticky note. <span class="ic">develop</span> is another. You can have hundreds of them.</p>
       </div>
-      <h2>Anatomy of a good Pull Request</h2>
-      <table>
-        <tr><th>Section</th><th>What it should contain</th></tr>
-        <tr><td>Title</td><td>"AUDIT-142: Add Snowflake payment controls pipeline" — Jira ticket + short description</td></tr>
-        <tr><td>Description</td><td>What changed, why it changed, and how to test it</td></tr>
-        <tr><td>Linked ticket</td><td>Bitbucket should auto-detect the Jira ID from the branch name</td></tr>
-        <tr><td>Reviewers</td><td>At least one — ideally you or a senior developer on the team</td></tr>
-        <tr><td>Diff</td><td>The actual line-by-line changes — this is what you review</td></tr>
-      </table>
-      <h2>PR lifecycle</h2>
-      <div class="pipeline-stage">
-        <div class="p-stage"><div class="p-stage-label">Step 1</div><div class="p-stage-name">PR Opened</div><div class="p-stage-tool">Dev submits</div></div>
-        <div class="p-stage"><div class="p-stage-label">Step 2</div><div class="p-stage-name">Review</div><div class="p-stage-tool">You comment</div></div>
-        <div class="p-stage"><div class="p-stage-label">Step 3</div><div class="p-stage-name">Changes</div><div class="p-stage-tool">Dev revises</div></div>
-        <div class="p-stage"><div class="p-stage-label">Step 4</div><div class="p-stage-name">Approved</div><div class="p-stage-tool">Review passes</div></div>
-        <div class="p-stage"><div class="p-stage-label">Step 5</div><div class="p-stage-name">Merged</div><div class="p-stage-tool">Into develop</div></div>
+
+      <h2>Your GitFlow branch structure</h2>
+      <div class="code-block"><code><span class="cc"># Your team's branch hierarchy</span>
+
+<span style="color:#4ecdc4">main</span>           <span class="cc">← production. Only touched during monthly release. Tagged with version.</span>
+  │
+  └── <span style="color:#f5a623">develop</span>    <span class="cc">← integration branch. All features land here first. Always deployable.</span>
+        │
+        ├── <span style="color:#6baaff">feature/AUDIT-142-payment-controls</span>     <span class="cc">← one developer's work</span>
+        ├── <span style="color:#6baaff">feature/AUDIT-155-workpaper-update</span>      <span class="cc">← another developer's work</span>
+        ├── <span style="color:#6baaff">feature/AUDIT-161-snowflake-connector</span>   <span class="cc">← another developer's work</span>
+        │
+        └── <span style="color:#c084fc">release/2024-07</span>    <span class="cc">← cut near month end. Bug fixes only. Then → main.</span>
+
+  └── <span style="color:#e94560">hotfix/AUDIT-170-null-crash</span>   <span class="cc">← emergency fix. Goes directly to main AND develop.</span></code></div>
+
+      <h2>Merge — combining branches</h2>
+      <p>A merge takes the commits from one branch and integrates them into another. Git looks at the two branches, finds where they diverged, and combines the changes.</p>
+      <div class="code-block"><code><span class="cc"># Merge feature branch into develop</span>
+<span class="cmd">git checkout</span> develop             <span class="cc"># switch to the target branch</span>
+<span class="cmd">git pull</span> origin develop          <span class="cc"># make sure you have the latest</span>
+<span class="cmd">git merge</span> feature/AUDIT-142      <span class="cc"># bring in the feature branch commits</span>
+<span class="cmd">git push</span> origin develop          <span class="cc"># push the result to Bitbucket</span></code></div>
+      <p>In practice your team does merges via Pull Requests in Bitbucket — not from the command line. The PR is the review gate before the merge happens.</p>
+
+      <h2>Merge conflicts — what they are and how to handle them</h2>
+      <p>A merge conflict happens when two branches changed the same line(s) of the same file and Git can't automatically decide which version to keep. Git stops the merge and asks you to decide.</p>
+      <div class="code-block"><code><span class="cc"># Git marks the conflict in the file like this:</span>
+<<<<<<< HEAD (your current branch — develop)
+result_df = snowflake_conn.execute(query, timeout=30)
+=======
+result_df = snowflake_conn.execute(query, timeout=60)
+>>>>>>> feature/AUDIT-155 (the branch being merged in)
+
+<span class="cc"># You edit the file to keep what you want (delete the markers):</span>
+result_df = snowflake_conn.execute(query, timeout=60)  <span class="cc"># chose 60</span>
+
+<span class="cc"># Then complete the merge:</span>
+<span class="cmd">git add</span> snowflake_query.py
+<span class="cmd">git commit</span> <span class="ck">-m</span> <span class="cs">"merge AUDIT-155: resolved timeout conflict"</span></code></div>
+
+      <h2>Rebase — rewriting history for cleaner commits</h2>
+      <p>This is the term that confuses developers. Rebase is an alternative to merge. Instead of combining the history of two branches into a merge commit, rebase re-applies your commits on top of another branch — making it look like you branched off more recently.</p>
+      <div class="two-col">
+        <div class="scenario-box">
+          <div class="scenario-title">After merge</div>
+          <div class="code-block" style="margin:0"><code style="font-size:11px">A - B - C (develop)
+        \       \
+         D - E - F (merge commit)
+
+History shows the branches diverged.
+One merge commit added.</code></div>
+        </div>
+        <div class="scenario-box">
+          <div class="scenario-title">After rebase</div>
+          <div class="code-block" style="margin:0"><code style="font-size:11px">A - B - C - D' - E' (develop)
+
+History is linear. Commits D and E
+replayed on top of C. Cleaner log.</code></div>
+        </div>
       </div>
-      <h2>Reading a diff in Bitbucket</h2>
-      <p>Lines in green were added, lines in red were removed.</p>
-      <div class="code-block"><code><span class="code-comment"># Removed (red in Bitbucket)</span>
-<span style="color:#e94560">- query = "SELECT loan_id, balance FROM loans WHERE status = 'active'"</span>
-<span style="color:#e94560">- df = snowflake_conn.execute(query)</span>
+      <div class="callout warn">
+        <div class="callout-label">Golden rule of rebase</div>
+        <p>Never rebase a branch that other people are working on or that has been pushed to a shared remote. Rebase rewrites commit hashes — it creates new commits that look like your old ones but have new IDs. Anyone else who has the old commits will have history that no longer matches. Use rebase only on your own private feature branches, before they're merged.</p>
+      </div>
+      <div class="code-block"><code><span class="cc"># Typical use: bring your feature branch up to date with develop</span>
+<span class="cc"># instead of creating a merge commit, replay your commits on top of latest develop</span>
 
-<span class="code-comment"># Added (green in Bitbucket)</span>
-<span style="color:#4ecdc4">+ query = "SELECT loan_id, balance, as_of_date FROM loans WHERE status = 'active'"</span>
-<span style="color:#4ecdc4">+ df = snowflake_conn.execute(query, timeout=30)</span>
+<span class="cmd">git checkout</span> feature/AUDIT-142    <span class="cc"># be on your feature branch</span>
+<span class="cmd">git fetch</span> origin                  <span class="cc"># get latest from Bitbucket</span>
+<span class="cmd">git rebase</span> origin/develop         <span class="cc"># replay your commits on top of latest develop</span>
 
-<span class="code-comment"># What changed: added as_of_date column + timeout parameter</span></code></div>
+<span class="cc"># If conflicts occur during rebase:</span>
+<span class="cc"># resolve the conflict in the file, then:</span>
+<span class="cmd">git add</span> .
+<span class="cmd">git rebase</span> <span class="ck">--continue</span>
+
+<span class="cc"># If you want to abort and go back to before the rebase started:</span>
+<span class="cmd">git rebase</span> <span class="ck">--abort</span></code></div>
+
+      <h2>Cherry-pick — taking one specific commit from another branch</h2>
+      <p>Cherry-pick applies a single commit from one branch onto your current branch. Useful when you need just one specific fix without merging the entire branch.</p>
+      <div class="code-block"><code><span class="cc"># Scenario: a developer fixed a critical bug in their feature branch.</span>
+<span class="cc"># You need that fix on main right now, but their feature isn't ready.</span>
+
+<span class="cmd">git log</span> feature/AUDIT-142 <span class="ck">--oneline</span>   <span class="cc"># find the commit hash you want</span>
+<span class="cc"># output: a3f9c2d AUDIT-142: fix null loan_id crash</span>
+
+<span class="cmd">git checkout</span> main
+<span class="cmd">git cherry-pick</span> a3f9c2d              <span class="cc"># apply just that commit to main</span></code></div>
+
+      <h2>Interactive rebase — cleaning up messy commits before a PR</h2>
+      <p>Interactive rebase lets you edit, reorder, combine, or delete commits before they're merged. Developers use this to clean up "work in progress" commits into a clean, readable history.</p>
+      <div class="code-block"><code><span class="cc"># Squash the last 3 commits into one clean commit</span>
+<span class="cmd">git rebase</span> <span class="ck">-i</span> HEAD~3
+
+<span class="cc"># This opens an editor showing:</span>
+pick a1b2c3 WIP: started payment query
+pick d4e5f6 still working on it
+pick g7h8i9 AUDIT-142: completed payment query with NULL checks
+
+<span class="cc"># Change to:</span>
+pick a1b2c3 WIP: started payment query
+squash d4e5f6 still working on it
+squash g7h8i9 AUDIT-142: completed payment query with NULL checks
+
+<span class="cc"># Git combines them into one commit with a message you write</span></code></div>
+
+      <h2>Fast-forward merge vs three-way merge</h2>
+      <p>You'll see this in Bitbucket PR options. A <span class="hl">fast-forward merge</span> happens when the target branch hasn't moved since you branched off — Git just moves the pointer forward. No merge commit is created. A <span class="hl">three-way merge</span> (or "merge commit") happens when both branches have diverged — Git creates a new commit that ties them together. Most teams use "squash and merge" in Bitbucket PRs — this combines all feature commits into one clean commit on develop.</p>
+
       <div class="chapter-nav">
-        <button class="nav-btn" onclick="go(4)">← Branching</button>
-        <button class="nav-btn primary" onclick="go(6)">CI/CD Concepts →</button>
+        <button class="nav-btn" onclick="go(4)">← Git Commands</button>
+        <button class="nav-btn primary" onclick="go(6)">Pull Requests →</button>
       </div>
     </div>
 
-    <!-- PAGE 6 -->
+    <!-- PAGE 6: PRs -->
     <div class="page" id="page-6">
       <div class="chapter-badge">Chapter 6</div>
-      <h1>CI/CD Concepts</h1>
-      <p class="subtitle">CI/CD stands for Continuous Integration and Continuous Deployment. It's the automated system that takes code from Bitbucket and gets it running in production.</p>
+      <h1>Pull Requests & Code Review</h1>
+      <p class="subtitle">A Pull Request (PR) is a formal proposal to merge one branch into another. It's also the primary quality gate in your team's workflow.</p>
       <div class="analogy-box">
-        <div class="analogy-label">The warehouse analogy</div>
-        <p>Imagine a factory assembly line. A developer drops a part (code) onto the conveyor belt (CI/CD). It gets automatically inspected (tests), packaged (build), and shipped to the store shelf (deployed to production). No human carries it manually at each step.</p>
+        <div class="analogy-label">The workpaper review analogy</div>
+        <p>A PR is identical in purpose to a workpaper review in audit. Developer = preparer. Reviewer = you. The work product can't be "filed" (merged) until the reviewer approves. Comments must be addressed. The trail of review and approval is preserved. You've been doing code review your whole career — you just called it workpaper review.</p>
       </div>
-      <h2>CI — Continuous Integration</h2>
-      <div class="flow-steps">
-        <div class="flow-step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Code pushed to Bitbucket</div><div class="step-desc">Developer runs <span class="inline-code">git push</span>. Bitbucket triggers a webhook — it pings Jenkins saying "new code arrived."</div></div></div>
-        <div class="step-connector"></div>
-        <div class="flow-step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Jenkins picks it up</div><div class="step-desc">A Jenkins job starts automatically. It checks out the code, installs dependencies, and runs automated tests.</div></div></div>
-        <div class="step-connector"></div>
-        <div class="flow-step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Pass or fail feedback</div><div class="step-desc">If tests pass — green light, the PR can be merged. If tests fail — the developer fixes it before merging.</div></div></div>
-      </div>
-      <h2>CD — Continuous Deployment</h2>
-      <div class="pipeline-stage">
-        <div class="p-stage"><div class="p-stage-label">Trigger</div><div class="p-stage-name">Merge to main</div><div class="p-stage-tool">Git event</div></div>
-        <div class="p-stage"><div class="p-stage-label">Build</div><div class="p-stage-name">Package code</div><div class="p-stage-tool">Jenkins job</div></div>
-        <div class="p-stage"><div class="p-stage-label">Test</div><div class="p-stage-name">Regression tests</div><div class="p-stage-tool">Automated</div></div>
-        <div class="p-stage"><div class="p-stage-label">Deploy</div><div class="p-stage-name">Push to prod</div><div class="p-stage-tool">Jenkins + Control-M</div></div>
-        <div class="p-stage"><div class="p-stage-label">Verify</div><div class="p-stage-name">Job runs OK</div><div class="p-stage-tool">Monitoring</div></div>
-      </div>
-      <div class="callout">
-        <div class="callout-label">Your team's version</div>
-        <p>Your team does this monthly rather than continuously. That's called scheduled releases — still CI/CD, just with a human-controlled deployment gate. Many audit and compliance teams prefer this because change control requirements demand documented release windows.</p>
-      </div>
+      <h2>What a good PR looks like</h2>
+      <table>
+        <tr><th>Element</th><th>What it should contain</th><th>Why it matters</th></tr>
+        <tr><td>Title</td><td>"AUDIT-142: Add Snowflake payment controls pipeline"</td><td>Instantly tells you what changed and which ticket it belongs to</td></tr>
+        <tr><td>Description</td><td>What changed, why, what to test, any known limitations</td><td>Gives reviewer context — makes review faster and better</td></tr>
+        <tr><td>Linked ticket</td><td>Bitbucket auto-links when branch name contains Jira ID</td><td>Traceability from business requirement to code change</td></tr>
+        <tr><td>Small scope</td><td>One ticket = one PR. Not "everything I did this month."</td><td>Smaller PRs get better reviews. Large PRs get rubber-stamped.</td></tr>
+        <tr><td>Passing CI</td><td>Jenkins build is green before asking for review</td><td>Don't waste reviewer's time on code that doesn't even run</td></tr>
+      </table>
+      <h2>PR review strategies — what to actually look for</h2>
+      <p>As a manager reviewing PRs, you're not expected to catch every edge case. Your job is to check correctness of approach, security, maintainability, and whether the work matches the ticket.</p>
+      <table>
+        <tr><th>Check</th><th>What to look for</th><th>Red flag</th></tr>
+        <tr><td><span class="pill pill-red">Security</span></td><td>No hardcoded credentials, tokens, or passwords anywhere in the diff</td><td><span class="ic">password = "Snowflake123!"</span> in any file</td></tr>
+        <tr><td><span class="pill pill-amber">Error handling</span></td><td>Database calls, API calls, and file operations have try/except blocks</td><td>Code that will crash silently if Snowflake returns nothing</td></tr>
+        <tr><td><span class="pill pill-blue">Naming</span></td><td>Functions, variables, and files have descriptive names</td><td><span class="ic">def process(x)</span> — process what? What is x?</td></tr>
+        <tr><td><span class="pill pill-green">Scope</span></td><td>PR only contains changes related to its ticket</td><td>Ticket is a bug fix but diff shows refactored, unrelated functions</td></tr>
+        <tr><td><span class="pill pill-purple">Tests</span></td><td>New logic has corresponding tests</td><td>50 lines of new Python, zero new test lines</td></tr>
+        <tr><td><span class="pill pill-amber">Config</span></td><td>Environment-specific values use config files or environment variables</td><td>Hardcoded table names, file paths, or database connection strings</td></tr>
+      </table>
+      <h2>Writing effective review comments</h2>
       <div class="card-grid">
-        <div class="card"><div class="card-title">Repeatability</div><div class="card-desc">The same deployment process runs every time. No "it worked on my machine" problems.</div></div>
-        <div class="card"><div class="card-title">Audit trail</div><div class="card-desc">Every deployment is logged in Jenkins — who triggered it, what version, what time.</div></div>
-        <div class="card"><div class="card-title">Rollback</div><div class="card-desc">If a deployment breaks something, Jenkins can redeploy the previous version from the last good commit.</div></div>
+        <div class="card"><div class="card-title"><span class="badge badge-red">Blocker</span></div><div class="card-desc">Must be fixed before this PR can merge. Used for security issues, bugs, or logic errors that would break production.<br><br><em>"Blocker: password is hardcoded on line 42 — move to environment variable"</em></div></div>
+        <div class="card"><div class="card-title"><span class="badge badge-amber">Suggestion</span></div><div class="card-desc">Improvement worth making but not required to merge. Developer's discretion.<br><br><em>"Suggestion: consider extracting this query into its own function for reusability"</em></div></div>
+        <div class="card"><div class="card-title"><span class="badge badge-green">Question</span></div><div class="card-desc">You don't understand something — ask before approving. It might be fine, or it might reveal a bug.<br><br><em>"Question: what happens here if snowflake returns 0 rows?"</em></div></div>
+        <div class="card"><div class="card-title"><span class="badge badge-green">Nit</span></div><div class="card-desc">Tiny style issues not worth blocking over. State it clearly so the developer doesn't feel obligated.<br><br><em>"Nit: extra blank line on line 87 — not a blocker"</em></div></div>
       </div>
       <div class="chapter-nav">
-        <button class="nav-btn" onclick="go(5)">← Pull Requests</button>
-        <button class="nav-btn primary" onclick="go(7)">Jenkins in Your Stack →</button>
+        <button class="nav-btn" onclick="go(5)">← Branching</button>
+        <button class="nav-btn primary" onclick="go(7)">CI/CD Full Picture →</button>
       </div>
     </div>
 
-    <!-- PAGE 7 -->
+    <!-- PAGE 7: CI/CD -->
     <div class="page" id="page-7">
       <div class="chapter-badge">Chapter 7</div>
-      <h1>Jenkins in Your Stack</h1>
-      <p class="subtitle">Jenkins is the automation engine your team uses to build, test, and deploy code. It also schedules your monthly jobs.</p>
-      <div class="card-grid">
-        <div class="card"><div class="card-icon">🔗</div><div class="card-title">Triggered by Bitbucket</div><div class="card-desc">When code is pushed or merged, Bitbucket sends a signal to Jenkins to start a job automatically</div></div>
-        <div class="card"><div class="card-icon">📋</div><div class="card-title">Runs your Jenkinsfile</div><div class="card-desc">Each repo has a Jenkinsfile — a script defining exactly what steps Jenkins runs for that project</div></div>
-        <div class="card"><div class="card-icon">📅</div><div class="card-title">Schedules jobs</div><div class="card-desc">Like SQL Server Agent or Power Automate schedules, Jenkins runs jobs on a cron schedule</div></div>
-        <div class="card"><div class="card-icon">📊</div><div class="card-title">Logs everything</div><div class="card-desc">Every run has a full log — you can see exactly what ran, what failed, and why</div></div>
+      <h1>CI/CD: The Full Picture</h1>
+      <p class="subtitle">CI/CD is the automated system that takes code from a developer's commit and gets it running in production — without anyone manually copying files or running scripts.</p>
+      <div class="analogy-box">
+        <div class="analogy-label">The audit production analogy</div>
+        <p>Imagine if every time you saved a new version of an R Markdown workpaper, it automatically: ran all the data validation checks, rendered a test output PDF, flagged any errors back to you, and — if everything passed — deployed the new version to the production schedule. That is CI/CD. The goal is to make deployment as boring and automatic as possible so developers can focus on writing code, not moving files around.</p>
       </div>
-      <h2>Reading a Jenkinsfile</h2>
-      <div class="code-block"><code><span class="code-keyword">pipeline</span> {
-  <span class="code-keyword">agent</span> any
+      <h2>CI — Continuous Integration in detail</h2>
+      <p>Continuous Integration means every developer's code changes are merged into a shared branch frequently (at least daily) and automatically tested. The problem it solves: without CI, developers work in isolation for weeks, then try to merge everything at once — "merge hell."</p>
+      <div class="flow-steps">
+        <div class="flow-step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Developer pushes code to Bitbucket</div><div class="step-desc">The moment <span class="ic">git push</span> runs, Bitbucket detects new commits on a branch. It immediately fires a webhook — an HTTP notification — to Jenkins saying "new code, start a build."</div></div></div>
+        <div class="step-connector"></div>
+        <div class="flow-step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Jenkins starts a build automatically</div><div class="step-desc">Jenkins picks up the webhook, creates a fresh workspace, checks out the code from Bitbucket, and starts executing the Jenkinsfile stages in order. This happens with no human involvement.</div></div></div>
+        <div class="step-connector"></div>
+        <div class="flow-step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Dependencies are installed</div><div class="step-desc">Jenkins runs <span class="ic">pip install</span> or installs R packages. Every build starts from a clean slate — no relying on "it worked on my machine."</div></div></div>
+        <div class="step-connector"></div>
+        <div class="flow-step"><div class="step-num">4</div><div class="step-body"><div class="step-title">Automated tests run</div><div class="step-desc">Unit tests, integration tests, and linting checks run. Jenkins tracks which tests pass and which fail. A single failing test fails the entire build.</div></div></div>
+        <div class="step-connector"></div>
+        <div class="flow-step"><div class="step-num">5</div><div class="step-body"><div class="step-title">Pass or fail result reported back</div><div class="step-desc">Jenkins updates the PR in Bitbucket with a green checkmark (pass) or red X (fail). If fail, the PR cannot be merged until the developer fixes the issue and pushes again — triggering a new build.</div></div></div>
+      </div>
+      <h2>CD — Continuous Deployment in detail</h2>
+      <p>After code passes CI and gets merged to <span class="ic">main</span>, the deployment pipeline fires. This is the "last mile" — getting code from the repository onto the server where it actually runs.</p>
+      <div class="pipeline-stage">
+        <div class="p-stage"><div class="p-stage-label">Trigger</div><div class="p-stage-name">Merge to main</div><div class="p-stage-tool">Git webhook</div></div>
+        <div class="p-stage"><div class="p-stage-label">Checkout</div><div class="p-stage-name">Get code</div><div class="p-stage-tool">Jenkins pulls from Bitbucket</div></div>
+        <div class="p-stage"><div class="p-stage-label">Build</div><div class="p-stage-name">Package</div><div class="p-stage-tool">Install deps, compile</div></div>
+        <div class="p-stage"><div class="p-stage-label">Test</div><div class="p-stage-name">Full test suite</div><div class="p-stage-tool">All tests must pass</div></div>
+        <div class="p-stage"><div class="p-stage-label">Deploy</div><div class="p-stage-name">Push to server</div><div class="p-stage-tool">Copy files, restart services</div></div>
+        <div class="p-stage"><div class="p-stage-label">Verify</div><div class="p-stage-name">Smoke test</div><div class="p-stage-tool">Is it running OK?</div></div>
+      </div>
+      <h2>The key concepts you'll hear</h2>
+      <div class="term-grid">
+        <div class="term-card">
+          <div class="term-name">webhook</div>
+          <div class="term-body">
+            <div class="term-def">An automatic HTTP notification from one system to another triggered by an event</div>
+            <div class="term-analogy">Like an email notification except it's machine-to-machine. Bitbucket's webhook says to Jenkins: "event type: push, branch: feature/AUDIT-142, commit: a3f9c2d."</div>
+          </div>
+        </div>
+        <div class="term-card">
+          <div class="term-name">build artifact</div>
+          <div class="term-body">
+            <div class="term-def">The packaged output of a build — the thing that gets deployed, not the raw source code</div>
+            <div class="term-analogy">Like the final rendered PDF from R Markdown. The source is the .Rmd file. The artifact is the PDF. For Python, the artifact might be a Docker container or a zip of the compiled code.</div>
+          </div>
+        </div>
+        <div class="term-card">
+          <div class="term-name">pipeline as code</div>
+          <div class="term-body">
+            <div class="term-def">The deployment pipeline steps are defined in a file in the repo (Jenkinsfile), not configured via a GUI</div>
+            <div class="term-analogy">Instead of clicking through a UI to configure "run tests then deploy," you write a Jenkinsfile that lives in the repo with the code. The pipeline configuration is versioned just like the code.</div>
+          </div>
+        </div>
+        <div class="term-card">
+          <div class="term-name">rollback</div>
+          <div class="term-body">
+            <div class="term-def">Reverting a deployment to a previous known-good version</div>
+            <div class="term-analogy">Like restoring a previous version of a SharePoint document after a bad edit. In Jenkins, you trigger a deployment of the previous Git tag (e.g., v2024.06.0 instead of v2024.07.0).</div>
+          </div>
+        </div>
+        <div class="term-card">
+          <div class="term-name">smoke test</div>
+          <div class="term-body">
+            <div class="term-def">A quick, minimal check after deployment to confirm the system is basically running</div>
+            <div class="term-analogy">Like opening a workpaper after deploying to just check it renders and doesn't error before calling the deployment done. Not a full test — just "did it turn on?"</div>
+          </div>
+        </div>
+        <div class="term-card">
+          <div class="term-name">deployment gate</div>
+          <div class="term-body">
+            <div class="term-def">A manual approval step required before a pipeline continues to the next stage</div>
+            <div class="term-analogy">Like requiring a manager sign-off before a workpaper is filed. The pipeline pauses, sends a notification, and waits for a human to click "approve" before deploying to production.</div>
+          </div>
+        </div>
+      </div>
+      <div class="chapter-nav">
+        <button class="nav-btn" onclick="go(6)">← Pull Requests</button>
+        <button class="nav-btn primary" onclick="go(8)">Jenkins Deep Dive →</button>
+      </div>
+    </div>
 
-  <span class="code-keyword">stages</span> {
-    <span class="code-keyword">stage</span>(<span class="code-string">'Checkout'</span>) {
-      <span class="code-keyword">steps</span> {
-        <span class="code-cmd">git</span> branch: <span class="code-string">'main'</span>,
-            url: <span class="code-string">'https://bitbucket.org/yourteam/audit-controls.git'</span>
+    <!-- PAGE 8: Jenkins -->
+    <div class="page" id="page-8">
+      <div class="chapter-badge">Chapter 8</div>
+      <h1>Jenkins Deep Dive</h1>
+      <p class="subtitle">Jenkins is your team's CI/CD engine. It's the thing that responds to code pushes, runs tests, and deploys to production. Understanding it deeply makes you a much better manager.</p>
+      <h2>How Jenkins is structured</h2>
+      <div class="card-grid">
+        <div class="card"><div class="card-icon">🖥️</div><div class="card-title">Jenkins Server</div><div class="card-desc">A server running the Jenkins application. Your team has one (or more). It's always running, watching for webhooks and scheduled triggers.</div></div>
+        <div class="card"><div class="card-icon">📋</div><div class="card-title">Jobs / Pipelines</div><div class="card-desc">A configured unit of work in Jenkins. Your team likely has one pipeline per repo (MS1, MS2, R workpapers, Python notebooks, etc.)</div></div>
+        <div class="card"><div class="card-icon">🤖</div><div class="card-title">Agents / Nodes</div><div class="card-desc">The machines that actually run the pipeline steps. The Jenkins server orchestrates; agents do the work. Can be the same machine or separate.</div></div>
+        <div class="card"><div class="card-icon">📦</div><div class="card-title">Workspace</div><div class="card-desc">A temporary folder on the agent where Jenkins checks out the code for each build. Deleted or overwritten each run for a clean start.</div></div>
+      </div>
+      <h2>Anatomy of a Jenkinsfile — fully annotated</h2>
+      <div class="code-block"><code><span class="ck">pipeline</span> {
+
+  <span class="cc">// Which agent (machine) runs this — 'any' means any available agent</span>
+  <span class="ck">agent</span> any
+
+  <span class="cc">// Environment variables available to all stages</span>
+  <span class="ck">environment</span> {
+    SNOWFLAKE_USER  = credentials(<span class="cs">'snowflake-user'</span>)    <span class="cc">// fetched from Jenkins secret store</span>
+    SNOWFLAKE_PASS  = credentials(<span class="cs">'snowflake-password'</span>)  <span class="cc">// never hardcoded</span>
+    DEPLOY_ENV      = <span class="cs">'production'</span>
+  }
+
+  <span class="cc">// Triggers — when does this pipeline run?</span>
+  <span class="ck">triggers</span> {
+    pollSCM(<span class="cs">'H/5 * * * *'</span>)     <span class="cc">// check Bitbucket every 5 mins (webhook is better)</span>
+    cron(<span class="cs">'0 2 1 * *'</span>)         <span class="cc">// also run at 2am on the 1st of each month</span>
+  }
+
+  <span class="ck">stages</span> {
+
+    <span class="ck">stage</span>(<span class="cs">'Checkout'</span>) {
+      <span class="ck">steps</span> {
+        <span class="cc">// Pull the code from Bitbucket</span>
+        checkout scm
       }
     }
-    <span class="code-keyword">stage</span>(<span class="code-string">'Install Dependencies'</span>) {
-      <span class="code-keyword">steps</span> {
-        <span class="code-cmd">sh</span> <span class="code-string">'pip install -r requirements.txt'</span>
+
+    <span class="ck">stage</span>(<span class="cs">'Install Dependencies'</span>) {
+      <span class="ck">steps</span> {
+        <span class="cmd">sh</span> <span class="cs">'pip install -r requirements.txt'</span>
       }
     }
-    <span class="code-keyword">stage</span>(<span class="code-string">'Run Tests'</span>) {
-      <span class="code-keyword">steps</span> {
-        <span class="code-cmd">sh</span> <span class="code-string">'python -m pytest tests/'</span>
+
+    <span class="ck">stage</span>(<span class="cs">'Lint'</span>) {
+      <span class="ck">steps</span> {
+        <span class="cc">// Check code style — catches obvious formatting problems</span>
+        <span class="cmd">sh</span> <span class="cs">'flake8 src/ --max-line-length=120'</span>
       }
     }
-    <span class="code-keyword">stage</span>(<span class="code-string">'Deploy Workpaper Job'</span>) {
-      <span class="code-keyword">when</span> { branch <span class="code-string">'main'</span> }
-      <span class="code-keyword">steps</span> {
-        <span class="code-cmd">sh</span> <span class="code-string">'./deploy.sh'</span>
+
+    <span class="ck">stage</span>(<span class="cs">'Run Unit Tests'</span>) {
+      <span class="ck">steps</span> {
+        <span class="cmd">sh</span> <span class="cs">'python -m pytest tests/unit/ -v --junitxml=test-results.xml'</span>
+      }
+      <span class="ck">post</span> {
+        <span class="cc">// Always publish test results even if tests fail</span>
+        always { junit <span class="cs">'test-results.xml'</span> }
+      }
+    }
+
+    <span class="ck">stage</span>(<span class="cs">'Integration Tests'</span>) {
+      <span class="ck">steps</span> {
+        <span class="cmd">sh</span> <span class="cs">'python -m pytest tests/integration/ -v'</span>
+      }
+    }
+
+    <span class="ck">stage</span>(<span class="cs">'Deploy to Production'</span>) {
+      <span class="cc">// Only run this stage when on the main branch</span>
+      <span class="ck">when</span> { branch <span class="cs">'main'</span> }
+      <span class="ck">steps</span> {
+        <span class="cc">// Require a human to click approve in Jenkins UI before deploying</span>
+        input message: <span class="cs">'Deploy to production?'</span>, ok: <span class="cs">'Deploy'</span>
+        <span class="cmd">sh</span> <span class="cs">'./scripts/deploy.sh'</span>
+      }
+    }
+
+    <span class="ck">stage</span>(<span class="cs">'Update Control-M Jobs'</span>) {
+      <span class="ck">when</span> { branch <span class="cs">'main'</span> }
+      <span class="ck">steps</span> {
+        <span class="cmd">sh</span> <span class="cs">'./scripts/update_controlm_schedule.sh'</span>
       }
     }
   }
 
-  <span class="code-keyword">post</span> {
-    <span class="code-keyword">failure</span> {
-      <span class="code-cmd">mail</span> to: <span class="code-string">'audit-team@company.com'</span>,
-           subject: <span class="code-string">'Pipeline Failed'</span>
+  <span class="cc">// Post-build actions — run regardless of outcome</span>
+  <span class="ck">post</span> {
+    <span class="ck">success</span> {
+      <span class="cmd">mail</span> to: <span class="cs">'audit-team@company.com'</span>,
+           subject: <span class="cs">"BUILD SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}"</span>,
+           body:    <span class="cs">"Build passed. View at: ${env.BUILD_URL}"</span>
+    }
+    <span class="ck">failure</span> {
+      <span class="cmd">mail</span> to: <span class="cs">'audit-team@company.com'</span>,
+           subject: <span class="cs">"BUILD FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}"</span>,
+           body:    <span class="cs">"Stage: ${env.STAGE_NAME}\nView logs: ${env.BUILD_URL}console"</span>
+    }
+    <span class="ck">always</span> {
+      <span class="cc">// Clean up workspace after every build</span>
+      cleanWs()
     }
   }
 }</code></div>
-      <h2>Jenkins vocabulary</h2>
-      <table>
-        <tr><th>Term</th><th>What it means</th></tr>
-        <tr><td><span class="inline-code">Job / Pipeline</span></td><td>A configured automated task — one per repo or deployment process</td></tr>
-        <tr><td><span class="inline-code">Stage</span></td><td>A named step in the pipeline — Checkout, Test, Deploy, etc.</td></tr>
-        <tr><td><span class="inline-code">Build</span></td><td>One execution of a pipeline — each run gets a number (#1, #2, etc.)</td></tr>
-        <tr><td><span class="inline-code">Build log</span></td><td>The full console output of a run — where you go when something fails</td></tr>
-        <tr><td><span class="inline-code">Cron trigger</span></td><td>A schedule like <span class="inline-code">0 2 * * 1</span> meaning "every Monday at 2am"</td></tr>
-        <tr><td><span class="inline-code">Webhook</span></td><td>A signal from Bitbucket to Jenkins — "new code, start a build"</td></tr>
-        <tr><td><span class="inline-code">Workspace</span></td><td>The folder on Jenkins' server where it runs your code</td></tr>
-      </table>
+
+      <h2>Reading the Jenkins build console log</h2>
+      <p>When a build fails, the console log is the first place to look. Here's what you'll typically see:</p>
+      <div class="code-block"><code><span class="cc">Started by user Gabe Quinn</span>
+<span class="cc">Obtained Jenkinsfile from git https://bitbucket.org/team/audit-ms3</span>
+[Pipeline] Start of Pipeline
+[Pipeline] stage (Checkout)       ← stage name
+[Pipeline] { (Checkout)
+[Pipeline] checkout
+<span style="color:#4ecdc4">Cloning repository https://bitbucket.org/team/audit-ms3.git</span>
+
+[Pipeline] stage (Install Dependencies)
++ pip install -r requirements.txt   ← the actual command that ran (+ prefix)
+<span style="color:#4ecdc4">Successfully installed pandas-2.0.1 snowflake-connector-python-3.1.0</span>
+
+[Pipeline] stage (Run Unit Tests)
++ python -m pytest tests/unit/ -v
+<span style="color:#4ecdc4">PASSED tests/unit/test_query.py::test_null_loan_id</span>
+<span style="color:#e94560">FAILED tests/unit/test_query.py::test_empty_result_set</span>   ← failure here
+
+<span style="color:#e94560">ERROR: script returned exit code 1</span>   ← this is what stopped the build
+[Pipeline] End of Pipeline
+<span style="color:#e94560">Finished: FAILURE</span></code></div>
       <div class="callout tip">
-        <div class="callout-label">Manager tip</div>
-        <p>When a developer says "the build failed," your first question should be: "What stage did it fail at?" Checkout? Install? Tests? Deploy? The stage name and the build log will tell you 90% of what you need to diagnose the problem.</p>
+        <div class="callout-label">Manager debugging tip</div>
+        <p>When a build fails, search the console log for "ERROR", "FAILED", or "exit code". These are the actual failure points. Everything above them is context. The stage name tells you which phase failed. The specific line tells you what command failed. Share these two pieces of information when asking a developer to fix a failing build.</p>
       </div>
+      <h2>Jenkins vocabulary — every term you'll hear</h2>
+      <table>
+        <tr><th>Term</th><th>Definition</th></tr>
+        <tr><td><span class="ic">Build #N</span></td><td>Each execution of a pipeline gets an incrementing number. Build #47 ran on Monday, Build #48 on Tuesday. You can compare them.</td></tr>
+        <tr><td><span class="ic">Blue Ocean</span></td><td>Jenkins' modern visual UI for pipelines — shows stage-by-stage progress graphically</td></tr>
+        <tr><td><span class="ic">Credentials store</span></td><td>Where Jenkins keeps secrets (passwords, API tokens) so they never appear in code. Referenced in Jenkinsfile as <span class="ic">credentials('name')</span></td></tr>
+        <tr><td><span class="ic">SCM</span></td><td>Source Control Management — refers to your Git/Bitbucket setup. <span class="ic">checkout scm</span> tells Jenkins to pull the triggering repo.</td></tr>
+        <tr><td><span class="ic">Parallel stages</span></td><td>Running multiple stages simultaneously to speed up builds — e.g., running unit tests and linting at the same time</td></tr>
+        <tr><td><span class="ic">Artifact archiving</span></td><td>Saving build outputs (test reports, logs, compiled files) in Jenkins so you can download them after the build</td></tr>
+        <tr><td><span class="ic">Upstream/downstream</span></td><td>Jobs that trigger other jobs. MS1 completes → triggers MS2 build. MS2 is downstream of MS1.</td></tr>
+      </table>
       <div class="chapter-nav">
-        <button class="nav-btn" onclick="go(6)">← CI/CD Concepts</button>
-        <button class="nav-btn primary" onclick="go(8)">Releases & Deployments →</button>
+        <button class="nav-btn" onclick="go(7)">← CI/CD</button>
+        <button class="nav-btn primary" onclick="go(9)">Releases & Deployments →</button>
       </div>
     </div>
 
-    <!-- PAGE 8 -->
-    <div class="page" id="page-8">
-      <div class="chapter-badge">Chapter 8</div>
-      <h1>Releases & Deployments</h1>
-      <p class="subtitle">A release is a versioned, planned deployment of code. Your monthly cycle is a release cycle — here's how all the pieces connect.</p>
-      <div class="flow-steps">
-        <div class="flow-step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Jira Release Version created</div><div class="step-desc">In Jira, create a Release (e.g., "2024-07 Monthly Deployment"). All tickets for this month are attached to it. This is your manifest of what ships.</div></div></div>
-        <div class="step-connector"></div>
-        <div class="flow-step"><div class="step-num">2</div><div class="step-body"><div class="step-title">All feature branches merged to develop</div><div class="step-desc">Developers finish their tickets, PRs are reviewed and approved, features land in develop. Integration testing happens here.</div></div></div>
-        <div class="step-connector"></div>
-        <div class="flow-step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Release branch cut from develop</div><div class="step-desc"><span class="inline-code">release/2024-07</span> is created. No new features. Only release-blocking bug fixes can go in now.</div></div></div>
-        <div class="step-connector"></div>
-        <div class="flow-step"><div class="step-num">4</div><div class="step-body"><div class="step-title">Release merged to main + tagged</div><div class="step-desc">The release branch merges to main. A Git tag is created: <span class="inline-code">v2024.07.0</span>. This is the permanent record of exactly what code is in production.</div></div></div>
-        <div class="step-connector"></div>
-        <div class="flow-step"><div class="step-num">5</div><div class="step-body"><div class="step-title">Jenkins deployment pipeline fires</div><div class="step-desc">The merge to main triggers Jenkins. Jenkins builds, tests, and deploys. Control-M picks up the new job definitions.</div></div></div>
-        <div class="step-connector"></div>
-        <div class="flow-step"><div class="step-num">6</div><div class="step-body"><div class="step-title">Jira tickets closed, release marked Done</div><div class="step-desc">Jira release version is marked as Released. Stakeholders are notified. The cycle starts again for next month.</div></div></div>
-      </div>
-      <h2>Git tags — your permanent version markers</h2>
-      <div class="code-block"><code><span class="code-comment"># Create a tag after merging to main</span>
-<span class="code-cmd">git tag</span> <span class="code-keyword">-a</span> v2024.07.0 <span class="code-keyword">-m</span> <span class="code-string">"July 2024 monthly release"</span>
-<span class="code-cmd">git push</span> origin v2024.07.0
-
-<span class="code-comment"># To see all tags (your release history)</span>
-<span class="code-cmd">git tag</span> <span class="code-keyword">--list</span>
-
-<span class="code-comment"># To go back to a specific release (read-only)</span>
-<span class="code-cmd">git checkout</span> v2024.06.0</code></div>
-      <div class="callout">
-        <div class="callout-label">Audit relevance</div>
-        <p>Tags are your evidence. When an auditor asks "what version of the payment controls workpaper was running in Q2?", you point to the Git tag. Every release is permanently preserved and can be recreated exactly.</p>
-      </div>
-      <div class="chapter-nav">
-        <button class="nav-btn" onclick="go(7)">← Jenkins</button>
-        <button class="nav-btn primary" onclick="go(9)">Code Review Guide →</button>
-      </div>
-    </div>
-
-    <!-- PAGE 9 -->
+    <!-- PAGE 9: Releases -->
     <div class="page" id="page-9">
       <div class="chapter-badge">Chapter 9</div>
-      <h1>Code Review Guide for Managers</h1>
-      <p class="subtitle">As a manager you'll review Pull Requests. You don't need to catch every bug — you need to ensure quality, consistency, and maintainability.</p>
-      <div class="analogy-box">
-        <div class="analogy-label">Workpaper review analogy</div>
-        <p>You already know how to review a workpaper — you check that the logic is sound, the conclusion is supported, the format is consistent, and nothing is missing. Code review is the same process applied to scripts and pipelines instead of documents.</p>
-      </div>
-      <h2>The code review checklist</h2>
+      <h1>Releases & Deployments</h1>
+      <p class="subtitle">A release is a carefully managed, versioned deployment of code changes. Your monthly release cycle is a textbook example of a scheduled release process.</p>
+      <h2>Semantic versioning — how version numbers work</h2>
+      <p>Version numbers follow a standard called <span class="hl">Semantic Versioning (SemVer)</span>: <span class="ic">MAJOR.MINOR.PATCH</span> — for example <span class="ic">v2024.07.0</span>.</p>
       <table>
-        <tr><th>Category</th><th>What to check</th><th>Red flag example</th></tr>
-        <tr><td><span class="pill pill-blue">Purpose</span></td><td>Does the code match the Jira ticket?</td><td>PR for AUDIT-142 but the code changes the workpaper footer</td></tr>
-        <tr><td><span class="pill pill-green">Readability</span></td><td>Can you understand what the code does?</td><td><span class="inline-code">def x(a, b)</span> instead of <span class="inline-code">def calculate_loan_balance(loan_id, date)</span></td></tr>
-        <tr><td><span class="pill pill-amber">Hardcoding</span></td><td>Are credentials or paths hardcoded?</td><td><span class="inline-code">password = "MyPass123"</span> in the code</td></tr>
-        <tr><td><span class="pill pill-red">Error handling</span></td><td>What happens when Snowflake is down?</td><td>No try/except block around database calls</td></tr>
-        <tr><td><span class="pill pill-blue">Tests</span></td><td>Are there tests for new logic?</td><td>New SQL transformation with no test to verify output</td></tr>
-        <tr><td><span class="pill pill-green">Scope creep</span></td><td>Is the change limited to the ticket scope?</td><td>Bug fix ticket that also refactors three other functions</td></tr>
+        <tr><th>Part</th><th>When it increments</th><th>Example</th></tr>
+        <tr><td><span class="pill pill-red">MAJOR</span></td><td>Breaking changes — things that require existing users to change how they use the system</td><td>Changing a Snowflake view schema that all workpapers depend on</td></tr>
+        <tr><td><span class="pill pill-amber">MINOR</span></td><td>New features added in a backward-compatible way</td><td>New workpaper added to the system without changing existing ones</td></tr>
+        <tr><td><span class="pill pill-green">PATCH</span></td><td>Bug fixes — no new features, nothing breaking</td><td>Fixing a calculation error in an existing workpaper</td></tr>
       </table>
-      <h2>How to leave effective review comments</h2>
-      <div class="card-grid">
-        <div class="card"><div class="card-title">Be specific</div><div class="card-desc">"Line 42: this query will fail if loan_status is NULL — add WHERE loan_status IS NOT NULL" is helpful. "Needs work" is not.</div></div>
-        <div class="card"><div class="card-title">Distinguish severity</div><div class="card-desc">Use prefixes: "blocker:" for must-fix before merge, "suggestion:" for improvements, "question:" if you just don't understand something</div></div>
-        <div class="card"><div class="card-title">Explain the why</div><div class="card-desc">Don't just say change it — explain why. "This could cause a timeout on large loan volumes because..."</div></div>
+      <h2>The complete monthly release playbook</h2>
+      <div class="flow-steps">
+        <div class="flow-step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Create Jira Release version (Day 1 of sprint)</div><div class="step-desc">In Jira: Releases → Create Release → "2024-07 Monthly Deployment". Set the target date. All tickets for this sprint get assigned to this release version. This is your shipping manifest.</div></div></div>
+        <div class="step-connector"></div>
+        <div class="flow-step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Development in feature branches (Days 1–18)</div><div class="step-desc">Developers work their tickets. Each ticket gets a feature branch. PRs are opened, reviewed, and merged to <span class="ic">develop</span> as they're completed. Jenkins runs CI on every push.</div></div></div>
+        <div class="step-connector"></div>
+        <div class="flow-step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Integration testing on develop (Days 15–20)</div><div class="step-desc">Once all features are in <span class="ic">develop</span>, the full integrated system is tested. Do all the pieces work together? Does workpaper A still work after the Snowflake query change in ticket B?</div></div></div>
+        <div class="step-connector"></div>
+        <div class="flow-step"><div class="step-num">4</div><div class="step-body"><div class="step-title">Code freeze — release branch cut (Day 21)</div><div class="step-desc"><span class="ic">git checkout -b release/2024-07 develop</span> — the release branch is created. <strong>No new features after this point.</strong> Only release-blocking bug fixes are allowed in. Developers can keep working on next month's features in new feature branches.</div></div></div>
+        <div class="step-connector"></div>
+        <div class="flow-step"><div class="step-num">5</div><div class="step-body"><div class="step-title">Release testing (Days 21–27)</div><div class="step-desc">The release branch is deployed to the staging environment (not production yet). Final validation. Any bugs found go in as bug fixes on the release branch. These get merged back to develop too.</div></div></div>
+        <div class="step-connector"></div>
+        <div class="flow-step"><div class="step-num">6</div><div class="step-body"><div class="step-title">Merge to main + tag (Day 28–31)</div><div class="step-desc">Release branch → main. Tag created: <span class="ic">git tag -a v2024.07.0 -m "July 2024"</span>. Tag pushed to Bitbucket. This is the permanent record of exactly what code is in production.</div></div></div>
+        <div class="step-connector"></div>
+        <div class="flow-step"><div class="step-num">7</div><div class="step-body"><div class="step-title">Jenkins deployment fires</div><div class="step-desc">Merge to main triggers the Jenkins deployment pipeline. Build → Test → Deploy approval gate → Deploy to production → Control-M job definitions updated → smoke tests run.</div></div></div>
+        <div class="step-connector"></div>
+        <div class="flow-step"><div class="step-num">8</div><div class="step-body"><div class="step-title">Close Jira release, notify stakeholders</div><div class="step-desc">Mark the Jira release as Released. All attached tickets auto-close. Send release notes to stakeholders. Begin next sprint.</div></div></div>
       </div>
-      <div class="callout">
-        <div class="callout-label">Approve when...</div>
-        <p>The code does what the ticket asks. No hardcoded credentials. Logic is understandable. Errors are handled. Scope is appropriate. Minor style issues can be noted as suggestions without blocking.</p>
-      </div>
-      <div class="callout warn">
-        <div class="callout-label">Request changes when...</div>
-        <p>There are security issues (credentials, exposed data). Logic is clearly wrong. No error handling on critical paths. The change breaks existing functionality. Scope is way beyond the ticket.</p>
-      </div>
+      <h2>Hotfixes — bypassing the normal release cycle</h2>
+      <p>A hotfix is an emergency fix for a production-breaking bug that can't wait for the next monthly release. It bypasses the normal feature → develop → release → main flow.</p>
+      <div class="code-block"><code><span class="cc"># Production is broken. Workpapers are failing to run. Fix needed NOW.</span>
+
+<span class="cmd">git checkout</span> main              <span class="cc"># start from production code</span>
+<span class="cmd">git checkout</span> <span class="ck">-b</span> <span class="cs">hotfix/AUDIT-170-null-crash</span>
+
+<span class="cc"># ... fix the bug ...</span>
+
+<span class="cmd">git commit</span> <span class="ck">-m</span> <span class="cs">"AUDIT-170: fix null loan_id crash in payment extraction"</span>
+<span class="cmd">git push</span> origin hotfix/AUDIT-170-null-crash
+
+<span class="cc"># PR directly to main (emergency — expedited review)</span>
+<span class="cc"># After merge to main:</span>
+<span class="cmd">git tag</span> <span class="ck">-a</span> v2024.07.1 <span class="ck">-m</span> <span class="cs">"Hotfix: null crash fix"</span>
+
+<span class="cc"># ALSO merge the fix back to develop so next release includes it</span>
+<span class="cmd">git checkout</span> develop
+<span class="cmd">git merge</span> hotfix/AUDIT-170-null-crash
+<span class="cmd">git push</span> origin develop</code></div>
       <div class="chapter-nav">
-        <button class="nav-btn" onclick="go(8)">← Releases</button>
-        <button class="nav-btn primary" onclick="go(10)">Quick Reference →</button>
+        <button class="nav-btn" onclick="go(8)">← Jenkins</button>
+        <button class="nav-btn primary" onclick="go(10)">Environments →</button>
       </div>
     </div>
 
-    <!-- PAGE 10 -->
+    <!-- PAGE 10: Environments -->
     <div class="page" id="page-10">
       <div class="chapter-badge">Chapter 10</div>
-      <h1>Quick Reference</h1>
-      <p class="subtitle">Commands, vocabulary, and cheat sheets to keep handy as you ramp up.</p>
-      <h2>Git commands you'll use most</h2>
-      <div class="code-block"><code><span class="code-comment">--- GETTING ORIENTED ---</span>
-<span class="code-cmd">git status</span>            <span class="code-comment"># What's changed? What branch am I on?</span>
-<span class="code-cmd">git log</span> <span class="code-keyword">--oneline</span>     <span class="code-comment"># See recent commits in one line each</span>
-<span class="code-cmd">git branch</span> <span class="code-keyword">-a</span>         <span class="code-comment"># List all branches (local + remote)</span>
+      <h1>Environments Explained</h1>
+      <p class="subtitle">An environment is a complete, isolated instance of your application and infrastructure. Most teams have at least three. Understanding them is essential for understanding deployment.</p>
+      <div class="analogy-box">
+        <div class="analogy-label">The report development analogy</div>
+        <p>When you're building a new R Markdown workpaper, you don't test it on live production data with real auditors waiting for output. You test it on a subset of data in a dev environment. Once it looks right, you move it to a staging environment that mirrors production to do final validation. Only then does it go live. Environments in software work exactly the same way.</p>
+      </div>
+      <h2>The standard three environments</h2>
+      <div class="term-grid">
+        <div class="term-card">
+          <div class="term-name">Development (dev)</div>
+          <div class="term-body">
+            <div class="term-def">Where developers write and test code. Messy, unstable, frequently broken — and that's fine.</div>
+            <div class="term-analogy">Your local laptop or a shared dev server. Points to dev versions of Snowflake views, dev GREAT microservice instances, test data. Breaking things here has zero business impact.</div>
+            <div class="term-example">What gets deployed here: feature branches, constantly. Automatically on every push via CI.</div>
+          </div>
+        </div>
+        <div class="term-card">
+          <div class="term-name">Staging (UAT)</div>
+          <div class="term-body">
+            <div class="term-def">A production-like environment used for final validation before going live. "User Acceptance Testing."</div>
+            <div class="term-analogy">Like running your R workpaper against a full copy of production data but on a server nobody outside the team is watching. Everything should behave exactly like production.</div>
+            <div class="term-example">What gets deployed here: the release branch. Business stakeholders validate here before approving production deployment.</div>
+          </div>
+        </div>
+        <div class="term-card">
+          <div class="term-name">Production (prod)</div>
+          <div class="term-body">
+            <div class="term-def">The live system. Real data, real users, real consequences. Changes here require change control.</div>
+            <div class="term-analogy">The scheduled Control-M jobs running against real Snowflake data, producing the actual audit workpapers that go to the business. Any bug here is a real incident.</div>
+            <div class="term-example">What gets deployed here: main branch only, during the monthly release window, with an approval gate.</div>
+          </div>
+        </div>
+      </div>
+      <h2>Environment-specific configuration</h2>
+      <p>Code should behave identically across environments — but point at different resources. You shouldn't change code to switch environments. You change configuration. This is done through environment variables.</p>
+      <div class="code-block"><code><span class="cc"># In your Python code — never hardcode environment-specific values</span>
+<span class="ck">import</span> os
 
-<span class="code-comment">--- DAILY WORKFLOW ---</span>
-<span class="code-cmd">git pull</span>               <span class="code-comment"># Get latest changes from Bitbucket</span>
-<span class="code-cmd">git checkout</span> <span class="code-keyword">-b</span> feature/AUDIT-XXX   <span class="code-comment"># Create new branch</span>
-<span class="code-cmd">git add</span> .              <span class="code-comment"># Stage all changes</span>
-<span class="code-cmd">git commit</span> <span class="code-keyword">-m</span> <span class="code-string">"AUDIT-XXX: description"</span>   <span class="code-comment"># Commit</span>
-<span class="code-cmd">git push</span> origin feature/AUDIT-XXX    <span class="code-comment"># Push to Bitbucket</span>
+SNOWFLAKE_HOST = os.environ[<span class="cs">'SNOWFLAKE_HOST'</span>]   <span class="cc"># dev: dev-snowflake, prod: prod-snowflake</span>
+GREAT_MS3_URL  = os.environ[<span class="cs">'GREAT_MS3_URL'</span>]    <span class="cc"># dev: http://ms3-dev, prod: http://ms3-prod</span>
+LOG_LEVEL      = os.environ.get(<span class="cs">'LOG_LEVEL'</span>, <span class="cs">'INFO'</span>)
 
-<span class="code-comment">--- EMERGENCY ---</span>
-<span class="code-cmd">git stash</span>              <span class="code-comment"># Temporarily save uncommitted changes</span>
-<span class="code-cmd">git stash pop</span>          <span class="code-comment"># Restore stashed changes</span>
-<span class="code-cmd">git revert HEAD</span>        <span class="code-comment"># Undo last commit safely (keeps history)</span></code></div>
-      <h2>Vocabulary at a glance</h2>
-      <table>
-        <tr><th>Term</th><th>One-line definition</th></tr>
-        <tr><td><span class="inline-code">repo</span></td><td>A tracked project folder in Bitbucket</td></tr>
-        <tr><td><span class="inline-code">branch</span></td><td>An isolated copy of code for one task</td></tr>
-        <tr><td><span class="inline-code">commit</span></td><td>A saved snapshot with a message</td></tr>
-        <tr><td><span class="inline-code">PR / pull request</span></td><td>A request to merge a branch — triggers code review</td></tr>
-        <tr><td><span class="inline-code">merge</span></td><td>Combining two branches into one</td></tr>
-        <tr><td><span class="inline-code">Jenkins job</span></td><td>An automated pipeline that builds/deploys code</td></tr>
-        <tr><td><span class="inline-code">Jenkinsfile</span></td><td>The script that defines what a pipeline does</td></tr>
-        <tr><td><span class="inline-code">CI</span></td><td>Automated testing on every push</td></tr>
-        <tr><td><span class="inline-code">CD</span></td><td>Automated deployment on merge to main</td></tr>
-        <tr><td><span class="inline-code">release</span></td><td>A versioned, planned deployment (your monthly cycle)</td></tr>
-        <tr><td><span class="inline-code">tag</span></td><td>A permanent label on a commit marking a release version</td></tr>
-        <tr><td><span class="inline-code">hotfix</span></td><td>An emergency fix bypassing the normal release cycle</td></tr>
-        <tr><td><span class="inline-code">sprint</span></td><td>A fixed-length work cycle (your team = 4 weeks)</td></tr>
-        <tr><td><span class="inline-code">epic</span></td><td>A large Jira theme containing many stories/tasks</td></tr>
-        <tr><td><span class="inline-code">webhook</span></td><td>An automatic signal between systems (Bitbucket → Jenkins)</td></tr>
-      </table>
-      <h2>Your stack, connected</h2>
-      <div class="callout">
-        <div class="callout-label">The full picture</div>
-        <p><strong>Confluence intake</strong> → business requirement defined → <strong>Jira ticket</strong> created → developer creates <strong>feature branch in Bitbucket</strong> → writes Python/R code → opens <strong>Pull Request</strong> → you review → merge to develop → monthly <strong>release branch</strong> → merge to main → <strong>Jenkins</strong> deploys → <strong>Control-M</strong> schedules the jobs → workpapers run and land in <strong>GREAT microservices</strong>. Every step is traceable, logged, and reversible.</p>
+<span class="cc"># Jenkins sets these environment variables differently per stage:</span>
+<span class="cc"># Dev deploy: SNOWFLAKE_HOST=dev-account.snowflakecomputing.com</span>
+<span class="cc"># Prod deploy: SNOWFLAKE_HOST=prod-account.snowflakecomputing.com</span></code></div>
+      <h2>What "promoted to production" means</h2>
+      <p>You'll hear "promote to production" or "promote to prod." This just means: take the artifact (code package) that was successfully tested in staging and deploy that exact same thing to production. You're not rebuilding or redeploying from source — you're moving the already-tested artifact up the environment chain. This is critical because it guarantees what you tested is what you deploy.</p>
+      <div class="callout info">
+        <div class="callout-label">Your SSDSP environment</div>
+        <p>Your team's SSDSP R environment likely maps to one of these tiers. It's probably a staging or production environment where R Markdown workpapers run against real Snowflake data. This is why you connect to it separately from your dev setup — it's isolated for a reason.</p>
       </div>
       <div class="chapter-nav">
-        <button class="nav-btn" onclick="go(9)">← Code Review</button>
+        <button class="nav-btn" onclick="go(9)">← Releases</button>
+        <button class="nav-btn primary" onclick="go(11)">Code Review Guide →</button>
+      </div>
+    </div>
+
+    <!-- PAGE 11: Code Review -->
+    <div class="page" id="page-11">
+      <div class="chapter-badge">Chapter 11</div>
+      <h1>Code Review Guide for Managers</h1>
+      <p class="subtitle">Your comprehensive guide to reviewing Pull Requests. You don't need to be the best developer on the team to be an excellent code reviewer — you need the right framework.</p>
+      <div class="analogy-box">
+        <div class="analogy-label">You already know how to do this</div>
+        <p>Workpaper review and code review are identical in purpose. Both ask: does this work product achieve the stated objective, follow team standards, handle edge cases, and leave an understandable trail? The subject matter is different. The review discipline is the same.</p>
+      </div>
+      <h2>The manager's code review checklist</h2>
+      <table>
+        <tr><th>Category</th><th>What to check</th><th>What to look for</th></tr>
+        <tr><td><span class="pill pill-red">Security</span></td><td>No secrets in code</td><td>Search the diff for: password, token, secret, key, credential. Any hardcoded value is a blocker.</td></tr>
+        <tr><td><span class="pill pill-red">Security</span></td><td>No sensitive data logged</td><td>Look for <span class="ic">print()</span> or <span class="ic">log()</span> statements that might write PII or financial data to log files.</td></tr>
+        <tr><td><span class="pill pill-amber">Correctness</span></td><td>Logic matches the ticket</td><td>Read the Jira ticket, then read the code. Does it actually do what was asked?</td></tr>
+        <tr><td><span class="pill pill-amber">Correctness</span></td><td>Edge cases handled</td><td>What happens with empty results? NULL values? Zero rows from Snowflake? API timeout?</td></tr>
+        <tr><td><span class="pill pill-blue">Readability</span></td><td>Meaningful names</td><td>Can you guess what a function does from its name? <span class="ic">get_delinquent_loans(as_of_date)</span> = yes. <span class="ic">process(x)</span> = no.</td></tr>
+        <tr><td><span class="pill pill-blue">Readability</span></td><td>Comments on complex logic</td><td>Any non-obvious calculation or business rule should have a comment explaining why, not just what.</td></tr>
+        <tr><td><span class="pill pill-green">Maintainability</span></td><td>No magic numbers</td><td><span class="ic">if count > 50000</span> — what is 50000? It should be a named constant: <span class="ic">MAX_LOAN_COUNT = 50000</span></td></tr>
+        <tr><td><span class="pill pill-green">Maintainability</span></td><td>No duplicated logic</td><td>If the same 10 lines appear in 3 places, it should be a function. Duplication means 3 places to update when the logic changes.</td></tr>
+        <tr><td><span class="pill pill-purple">Testing</span></td><td>Tests exist for new logic</td><td>Every new function should have at least one test. New SQL transformation = test that verifies the output.</td></tr>
+        <tr><td><span class="pill pill-purple">Testing</span></td><td>Tests are meaningful</td><td>A test that just checks "the function ran without erroring" isn't useful. Tests should verify the output is correct.</td></tr>
+      </table>
+      <h2>Reviewing Python code — what to look for specifically</h2>
+      <div class="code-block"><code><span class="cc">--- GOOD Python patterns to look for ---</span>
+
+<span class="cc"># 1. Error handling around external calls</span>
+<span class="ck">try</span>:
+    df = snowflake_conn.execute(query)
+<span class="ck">except</span> Exception <span class="ck">as</span> e:
+    logger.error(<span class="cs">f"Snowflake query failed: {e}"</span>)
+    <span class="ck">raise</span>
+
+<span class="cc"># 2. Checking for empty results before processing</span>
+<span class="ck">if</span> df.empty:
+    logger.warning(<span class="cs">"No delinquent loans found for period — skipping workpaper"</span>)
+    <span class="ck">return</span>
+
+<span class="cc"># 3. Using config/env variables instead of hardcoded values</span>
+SNOWFLAKE_ACCOUNT = os.environ[<span class="cs">'SNOWFLAKE_ACCOUNT'</span>]  <span class="cc"># good</span>
+SNOWFLAKE_ACCOUNT = <span class="cs">"mycompany.us-east-1"</span>             <span class="cc"># bad</span>
+
+<span class="cc">--- RED FLAGS to block the PR ---</span>
+
+<span class="cc"># Hardcoded password — always a blocker</span>
+conn = connect(password=<span class="cs">"MyPass123!"</span>)
+
+<span class="cc"># No error handling on database call</span>
+df = snowflake_conn.execute(query)  <span class="cc"># crashes if Snowflake is down</span>
+
+<span class="cc"># Wildcard import — pulls in everything, causes naming conflicts</span>
+<span class="ck">from</span> utils <span class="ck">import</span> *</code></div>
+
+      <h2>Reviewing R Markdown — what to look for specifically</h2>
+      <div class="code-block"><code><span class="cc">--- GOOD R patterns ---</span>
+
+<span class="cc"># 1. Using tryCatch for database connections</span>
+conn &lt;- tryCatch({
+  dbConnect(...)
+}, error = function(e) {
+  stop(paste("Failed to connect to Snowflake:", e$message))
+})
+
+<span class="cc"># 2. Checking dimensions before processing</span>
+<span class="ck">if</span>(nrow(loan_data) == 0) {
+  knitr::knit_exit()  <span class="cc"># exit workpaper gracefully if no data</span>
+}
+
+<span class="cc">--- RED FLAGS ---</span>
+<span class="cc"># Hardcoded date in query (breaks every month)</span>
+WHERE as_of_date = '2024-06-30'   <span class="cc"># bad — should be a parameter</span>
+
+<span class="cc"># Script that will error if result set has unexpected columns</span>
+<span class="cc"># Always check that expected columns exist before selecting them</span></code></div>
+
+      <div class="chapter-nav">
+        <button class="nav-btn" onclick="go(10)">← Environments</button>
+        <button class="nav-btn primary" onclick="go(12)">Quick Reference →</button>
+      </div>
+    </div>
+
+    <!-- PAGE 12: Quick Reference -->
+    <div class="page" id="page-12">
+      <div class="chapter-badge">Chapter 12</div>
+      <h1>Quick Reference</h1>
+      <p class="subtitle">Everything organized for fast lookup — Git commands by situation, cron syntax, Jira shortcuts, and more.</p>
+
+      <h2>Git commands by situation</h2>
+      <h3>"I need to start new work"</h3>
+      <div class="code-block"><code><span class="cmd">git pull</span> origin develop                           <span class="cc"># sync first</span>
+<span class="cmd">git checkout</span> <span class="ck">-b</span> <span class="cs">feature/AUDIT-XXX-short-description</span>  <span class="cc"># new branch</span></code></div>
+      <h3>"I need to save my work"</h3>
+      <div class="code-block"><code><span class="cmd">git add</span> .                                          <span class="cc"># stage everything</span>
+<span class="cmd">git commit</span> <span class="ck">-m</span> <span class="cs">"AUDIT-XXX: describe what and why"</span>      <span class="cc"># commit</span>
+<span class="cmd">git push</span> origin feature/AUDIT-XXX-description       <span class="cc"># push to Bitbucket</span></code></div>
+      <h3>"I need to see what's going on"</h3>
+      <div class="code-block"><code><span class="cmd">git status</span>                    <span class="cc"># what changed?</span>
+<span class="cmd">git log</span> <span class="ck">--oneline -20</span>         <span class="cc"># last 20 commits</span>
+<span class="cmd">git branch</span> <span class="ck">-a</span>                 <span class="cc"># all branches</span>
+<span class="cmd">git diff</span>                      <span class="cc"># unstaged changes</span>
+<span class="cmd">git diff</span> <span class="ck">--staged</span>             <span class="cc"># staged, not yet committed</span></code></div>
+      <h3>"I made a mistake"</h3>
+      <div class="code-block"><code><span class="cmd">git restore</span> <span class="ck">--staged</span> file.py  <span class="cc"># unstage a file</span>
+<span class="cmd">git restore</span> file.py            <span class="cc"># discard changes to file (PERMANENT)</span>
+<span class="cmd">git reset</span> <span class="ck">--soft</span> HEAD~1        <span class="cc"># undo last commit, keep staged changes</span>
+<span class="cmd">git revert</span> HEAD                <span class="cc"># safely undo on shared branch</span>
+<span class="cmd">git stash</span>                      <span class="cc"># save work temporarily, clean workspace</span>
+<span class="cmd">git stash pop</span>                  <span class="cc"># restore stashed work</span></code></div>
+      <h3>"I need to do a release"</h3>
+      <div class="code-block"><code><span class="cmd">git checkout</span> <span class="ck">-b</span> release/2024-07 develop    <span class="cc"># cut release branch</span>
+<span class="cmd">git checkout</span> main
+<span class="cmd">git merge</span> release/2024-07                  <span class="cc"># merge to main</span>
+<span class="cmd">git tag</span> <span class="ck">-a</span> v2024.07.0 <span class="ck">-m</span> <span class="cs">"July 2024"</span>      <span class="cc"># tag it</span>
+<span class="cmd">git push</span> origin main <span class="ck">--tags</span>               <span class="cc"># push + tags</span></code></div>
+
+      <h2>Cron schedule syntax (used in Jenkins triggers)</h2>
+      <div class="code-block"><code><span class="cc"># Format: MINUTE  HOUR  DAY-OF-MONTH  MONTH  DAY-OF-WEEK</span>
+<span class="cc">#           0-59  0-23      1-31        1-12     0-7 (0=Sun)</span>
+
+<span class="cs">'0 2 * * *'</span>        <span class="cc"># Every day at 2:00am</span>
+<span class="cs">'0 8 1 * *'</span>        <span class="cc"># 1st of every month at 8:00am</span>
+<span class="cs">'0 6 * * 1'</span>        <span class="cc"># Every Monday at 6:00am</span>
+<span class="cs">'0 0 * * 1-5'</span>      <span class="cc"># Weekdays at midnight</span>
+<span class="cs">'H 2 * * *'</span>        <span class="cc"># Jenkins: spread load — sometime around 2am daily</span>
+<span class="cs">'@monthly'</span>         <span class="cc"># Alias: first day of month at midnight</span></code></div>
+
+      <h2>Common HTTP status codes (you'll see these in API logs)</h2>
+      <table>
+        <tr><th>Code</th><th>Meaning</th><th>What to do</th></tr>
+        <tr><td><span class="pill pill-green">200</span></td><td>OK — request succeeded</td><td>All good</td></tr>
+        <tr><td><span class="pill pill-green">201</span></td><td>Created — resource was created</td><td>All good (POST requests)</td></tr>
+        <tr><td><span class="pill pill-amber">400</span></td><td>Bad Request — your request had errors</td><td>Check the request payload/parameters</td></tr>
+        <tr><td><span class="pill pill-amber">401</span></td><td>Unauthorized — missing or bad credentials</td><td>Check API token / auth headers</td></tr>
+        <tr><td><span class="pill pill-amber">403</span></td><td>Forbidden — authenticated but not permitted</td><td>Check permissions on the resource</td></tr>
+        <tr><td><span class="pill pill-amber">404</span></td><td>Not Found — resource doesn't exist</td><td>Check the URL / endpoint path</td></tr>
+        <tr><td><span class="pill pill-red">429</span></td><td>Too Many Requests — rate limited</td><td>Add retry logic with backoff</td></tr>
+        <tr><td><span class="pill pill-red">500</span></td><td>Internal Server Error — server crashed</td><td>Check server logs — not your fault</td></tr>
+        <tr><td><span class="pill pill-red">503</span></td><td>Service Unavailable — server is down</td><td>Wait and retry — likely maintenance</td></tr>
+      </table>
+
+      <h2>Useful regex patterns in log searching</h2>
+      <div class="code-block"><code><span class="cc"># When searching Jenkins logs or Python logs</span>
+ERROR.*AUDIT-\d+        <span class="cc"># any error mentioning an AUDIT ticket</span>
+Failed.*snowflake       <span class="cc"># any failure mentioning snowflake</span>
+exit code [^0]          <span class="cc"># any non-zero exit code</span>
+timeout|timed out       <span class="cc"># timeout errors</span></code></div>
+
+      <div class="chapter-nav">
+        <button class="nav-btn" onclick="go(11)">← Code Review</button>
+        <button class="nav-btn primary" onclick="go(13)">Terminology Glossary →</button>
+      </div>
+    </div>
+
+    <!-- PAGE 13: Glossary -->
+    <div class="page" id="page-13">
+      <div class="chapter-badge">Chapter 13</div>
+      <h1>Terminology Glossary</h1>
+      <p class="subtitle">Every technical term you'll hear — with plain-English definitions, your-stack analogies, and context for when you'll encounter each one.</p>
+
+      <h2>A – G</h2>
+      <div class="term-grid">
+        <div class="term-card"><div class="term-name">abstraction</div><div class="term-body"><div class="term-def">Hiding complex implementation details behind a simple interface</div><div class="term-analogy">Like a Snowflake view — you query it simply without knowing the complex joins underneath. Good code abstracts complexity so callers don't need to know how something works, just what it does.</div></div></div>
+        <div class="term-card"><div class="term-name">API</div><div class="term-body"><div class="term-def">Application Programming Interface — a defined way for two systems to communicate</div><div class="term-analogy">Like a standardized form. If you fill in the right fields and submit, you get a predictable response back. Your GREAT microservices expose APIs. External data sources expose APIs your team calls.</div><div class="term-example">REST API: uses HTTP methods (GET, POST, PUT, DELETE) over the web</div></div></div>
+        <div class="term-card"><div class="term-name">async / await</div><div class="term-body"><div class="term-def">A way of writing code that doesn't block waiting for slow operations (like API calls)</div><div class="term-analogy">Like submitting an R job and continuing to work while it runs instead of staring at the console. Async code sends a request and moves on, handling the response when it arrives.</div></div></div>
+        <div class="term-card"><div class="term-name">authentication vs authorization</div><div class="term-body"><div class="term-def">Authentication = who are you? Authorization = what are you allowed to do?</div><div class="term-analogy">Authentication is your Snowflake login. Authorization is whether your account has SELECT rights on the LOANS table. You can be authenticated but not authorized.</div></div></div>
+        <div class="term-card"><div class="term-name">boilerplate</div><div class="term-body"><div class="term-def">Standard, repetitive code that appears in many places with little variation</div><div class="term-analogy">Like the standard headers on every audit workpaper. Necessary, but copy-pasted. Good frameworks reduce boilerplate so developers write less repeated setup code.</div></div></div>
+        <div class="term-card"><div class="term-name">dependency</div><div class="term-body"><div class="term-def">An external library or package your code needs to run</div><div class="term-analogy">Like R packages — your workpaper depends on dplyr, ggplot2, etc. Python dependencies live in requirements.txt. If a dependency isn't installed, the code fails.</div><div class="term-example">requirements.txt: pandas==2.0.1, snowflake-connector-python==3.1.0</div></div></div>
+        <div class="term-card"><div class="term-name">Docker / container</div><div class="term-body"><div class="term-def">A way to package code and all its dependencies into a portable, isolated box</div><div class="term-analogy">Like packaging your entire R environment (the R version, all packages, the script) into a zip file that runs identically everywhere. "It works on my machine" goes away because the machine is inside the container.</div></div></div>
+        <div class="term-card"><div class="term-name">environment variable</div><div class="term-body"><div class="term-def">A named value stored outside the code that the code reads at runtime</div><div class="term-analogy">Like an R Markdown parameter — you pass it in at render time rather than hardcoding it in the script. Keeps secrets out of code and makes the same code run differently in dev vs production.</div></div></div>
+        <div class="term-card"><div class="term-name">framework</div><div class="term-body"><div class="term-def">A pre-built structure that provides standard patterns and tools so you don't start from scratch</div><div class="term-analogy">Like an R Markdown workpaper template that has standard sections pre-built. A framework gives your code a structure to live inside. FastAPI is a framework for building Python APIs. Your GREAT application is a framework for audit automation.</div></div></div>
+      </div>
+
+      <h2>H – P</h2>
+      <div class="term-grid">
+        <div class="term-card"><div class="term-name">idempotent</div><div class="term-body"><div class="term-def">An operation that produces the same result no matter how many times you run it</div><div class="term-analogy">Like a SQL INSERT with ON CONFLICT DO NOTHING — running it 5 times produces the same result as running it once. Critical for scheduled jobs that might run twice due to retries.</div></div></div>
+        <div class="term-card"><div class="term-name">linting</div><div class="term-body"><div class="term-def">Automated code style checking — enforces consistent formatting rules across the team</div><div class="term-analogy">Like spell-check and grammar-check for code. Catches things like inconsistent indentation, unused variables, lines that are too long. Usually runs in the Jenkins pipeline automatically. Python uses flake8 or pylint. R uses lintr.</div></div></div>
+        <div class="term-card"><div class="term-name">logging</div><div class="term-body"><div class="term-def">Writing timestamped records of what a program did to a log file for debugging and auditing</div><div class="term-analogy">Like an audit trail for code execution. Levels: DEBUG (verbose dev info), INFO (normal operations), WARNING (something unexpected but not broken), ERROR (something failed), CRITICAL (system is down). Production usually logs INFO and above.</div></div></div>
+        <div class="term-card"><div class="term-name">microservice</div><div class="term-body"><div class="term-def">A small, independently deployable service that does one thing well</div><div class="term-analogy">Your GREAT application is a perfect example. MS1 orchestrates, MS2 triggers Control-M, MS3 is the workpaper repository, MS4 does QA checking. Each is separate — you can deploy MS4 without touching MS1. The alternative (monolith) is one giant application that does everything.</div></div></div>
+        <div class="term-card"><div class="term-name">mock / stub</div><div class="term-body"><div class="term-def">A fake version of an external dependency used in tests so tests run without real connections</div><div class="term-analogy">Like testing an R workpaper with a hardcoded sample dataset instead of a live Snowflake connection. A mock replaces the Snowflake connector with a fake that returns known test data, so tests run fast and don't depend on the database being up.</div></div></div>
+        <div class="term-card"><div class="term-name">orchestration</div><div class="term-body"><div class="term-def">Coordinating multiple services or processes to work together in sequence</div><div class="term-analogy">Like your MS1 microservice — it coordinates the whole workflow: trigger MS2, wait for data, trigger workpaper generation, send to MS3. Control-M is also an orchestrator for scheduled jobs.</div></div></div>
+        <div class="term-card"><div class="term-name">payload</div><div class="term-body"><div class="term-def">The data body of an API request or response</div><div class="term-analogy">Like the body of an email. The envelope (HTTP headers) wraps the payload (the actual data). When your Python code calls a REST API, the payload is usually a JSON object.</div><div class="term-example">{"loan_id": "12345", "as_of_date": "2024-06-30", "status": "delinquent"}</div></div></div>
+        <div class="term-card"><div class="term-name">PR (pull request)</div><div class="term-body"><div class="term-def">A request to merge one Git branch into another, with a built-in review and discussion thread</div><div class="term-analogy">Workpaper review process, but for code. Preparer opens the PR, reviewer comments and approves, then it's merged (filed). Full trail preserved in Bitbucket.</div></div></div>
+      </div>
+
+      <h2>R – Z</h2>
+      <div class="term-grid">
+        <div class="term-card"><div class="term-name">refactoring</div><div class="term-body"><div class="term-def">Restructuring existing code without changing its behavior — improving readability and maintainability</div><div class="term-analogy">Like cleaning up a messy SQL query — you rewrite it with CTEs and better formatting, but it still returns the exact same results. No new features, no bug fixes. Pure improvement of the code's internal quality.</div></div></div>
+        <div class="term-card"><div class="term-name">regression</div><div class="term-body"><div class="term-def">When a change breaks something that was working before</div><div class="term-analogy">You add a new column to a Snowflake query and it breaks the R workpaper that was already working. The workpaper "regressed." Regression tests catch these — they verify old functionality still works after new changes.</div></div></div>
+        <div class="term-card"><div class="term-name">REST / RESTful</div><div class="term-body"><div class="term-def">A standard style for designing web APIs — uses HTTP methods and URLs to represent operations on resources</div><div class="term-analogy">GET /loans = get all loans. POST /loans = create a loan. PUT /loans/123 = update loan 123. DELETE /loans/123 = delete it. Predictable, readable, widely used. Your GREAT microservices likely expose REST APIs.</div></div></div>
+        <div class="term-card"><div class="term-name">schema</div><div class="term-body"><div class="term-def">The structure and data types of a database table or API payload</div><div class="term-analogy">Exactly what you know from SQL. Column names, data types, constraints. In Python/API context, a schema also describes the expected shape of a JSON object. A schema change in Snowflake without notifying developers is a common production incident.</div></div></div>
+        <div class="term-card"><div class="term-name">technical debt</div><div class="term-body"><div class="term-def">The accumulated cost of shortcuts, quick fixes, and deferred improvements in code</div><div class="term-analogy">Like an audit finding you documented but didn't remediate. It's still there, accumulating risk. Technical debt isn't necessarily bad — sometimes a quick solution is appropriate — but it has to be tracked and paid down intentionally, or it slows everything down.</div></div></div>
+        <div class="term-card"><div class="term-name">token / JWT</div><div class="term-body"><div class="term-def">A short-lived credential string used for API authentication instead of a password</div><div class="term-analogy">Like a visitor badge that expires at end of day. You can't use a visitor badge the next morning — you get a new one. Tokens expire (typically minutes to hours). Your GREAT microservices and Snowflake API connections use tokens. They must be refreshed when they expire.</div></div></div>
+        <div class="term-card"><div class="term-name">version control</div><div class="term-body"><div class="term-def">A system that tracks and manages changes to files over time</div><div class="term-analogy">Git is the universal standard for code version control. Without it, teams would share code by emailing files. With it, every change is tracked, attributable, reversible, and branchable.</div></div></div>
+        <div class="term-card"><div class="term-name">YAML</div><div class="term-body"><div class="term-def">A human-readable configuration file format — "Yet Another Markup Language"</div><div class="term-analogy">Like a structured settings file. Used everywhere in DevOps tools for configuration. Jenkins, Kubernetes, GitHub Actions all use YAML. It's whitespace-sensitive — indentation matters, like Python. A misplaced space can break a pipeline config.</div><div class="term-example">key: value<br>&nbsp;&nbsp;nested_key: nested_value<br>&nbsp;&nbsp;list:<br>&nbsp;&nbsp;&nbsp;&nbsp;- item1<br>&nbsp;&nbsp;&nbsp;&nbsp;- item2</div></div></div>
+      </div>
+
+      <div class="chapter-nav">
+        <button class="nav-btn" onclick="go(12)">← Quick Reference</button>
         <button class="nav-btn primary" onclick="go(0)">Back to start ↺</button>
       </div>
     </div>
@@ -622,6 +1323,7 @@ const navItems = document.querySelectorAll('.nav-item');
 const progBar = document.getElementById('prog-bar');
 const progText = document.getElementById('prog-text');
 let current = 0;
+const total = 14;
 function go(n) {
   pages[current].classList.remove('active');
   navItems[current].classList.remove('active');
@@ -629,9 +1331,9 @@ function go(n) {
   pages[current].classList.add('active');
   navItems[current].classList.add('active');
   document.getElementById('main-content').scrollTop = 0;
-  const pct = Math.round(((n + 1) / 11) * 100);
+  const pct = Math.round(((n + 1) / total) * 100);
   progBar.style.width = pct + '%';
-  progText.textContent = (n + 1) + ' / 11';
+  progText.textContent = (n + 1) + ' / ' + total;
 }
 </script>
 </body>
